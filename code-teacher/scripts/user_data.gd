@@ -1,0 +1,66 @@
+extends Node
+
+
+var username = ""
+
+var players_dets = {
+	"test_username" : "test_password"
+}
+
+var player_game_data = {
+	"usernamme" : "",
+	"password" : "",
+	"current_level" : 0,
+	"total_points" : 0
+}
+
+
+func reset_player_game_data():
+	player_game_data["current_level"] = 0
+	player_game_data["total_points"] = 0
+
+
+func save_player_data():
+	var save_file = FileAccess.open("user://" + username + ".json", FileAccess.WRITE)
+	var json_string = JSON.stringify(player_game_data)
+	save_file.store_line(json_string)
+
+
+func load_player_data() -> bool:
+	if not FileAccess.file_exists("user://" + username + ".json"):
+		return false
+	
+	var save_file = FileAccess.open("user://" + username + ".json", FileAccess.READ)
+	var json = JSON.new()
+	var json_string = save_file.get_line()
+	var parse_result = json.parse(json_string)
+	
+	if parse_result != OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return false
+	
+	player_game_data = json.data
+	return true
+
+
+func save_players_dets():
+	var save_file = FileAccess.open("user://players.json", FileAccess.WRITE)
+	var json_string = JSON.stringify(players_dets)
+	save_file.store_line(json_string)
+
+
+func load_players_dets() -> bool:
+	if not FileAccess.file_exists("user://players.json"):
+		return false
+	
+	var save_file = FileAccess.open("user://players.json", FileAccess.READ)
+	var json = JSON.new()
+	var json_string = save_file.get_line()
+	var parse_result = json.parse(json_string)
+	
+	if parse_result != OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return false
+	
+	players_dets = json.data
+	return true

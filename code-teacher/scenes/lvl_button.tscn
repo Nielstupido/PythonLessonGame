@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://duhm48nuq1ni3"]
+
+[ext_resource type="Script" path="res://scripts/lvl_button.gd" id="1_okx7h"]
+
+[node name="LvlButton" type="Button"]
+offset_right = 197.0
+offset_bottom = 121.0
+text = "Level Name"
+script = ExtResource("1_okx7h")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

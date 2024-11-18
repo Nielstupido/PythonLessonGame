@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d02jd7didwgda"]
+
+[ext_resource type="Texture2D" uid="uid://pc44qmhyihlq" path="res://assets/kenney_platformer-art-candy/Tiles/cherry.png" id="1_edrne"]
+
+[sub_resource type="GDScript" id="GDScript_dpwjx"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11jr8"]
+radius = 26.0
+
+[node name="Coin" type="Area2D"]
+collision_mask = 2
+script = SubResource("GDScript_dpwjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_edrne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 12)
+shape = SubResource("CircleShape2D_11jr8")

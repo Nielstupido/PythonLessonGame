@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=4 uid="uid://co3v5w0ctl8yf"]
+
+[ext_resource type="Script" path="res://Scripts/exit.gd" id="1_r4e3a"]
+[ext_resource type="PackedScene" uid="uid://bhk2r8tlheipj" path="res://scenes/tile_map_layer.tscn" id="2_glqxm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x74ru"]
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slr08"]
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvgdl"]
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aygpq"]
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3658r"]
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq1ff"]
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4nq"]
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abcik"]
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8f6yo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x74ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slr08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvgdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aygpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3658r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq1ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st4nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abcik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wytis"]
+radius = 13.0384
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po3qk"]
+size = Vector2(42.375, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axhjh"]
+size = Vector2(6, 12)
+
+[node name="Exit" type="Area2D" groups=["starts"]]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_r4e3a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, -40)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8f6yo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, -95)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_wytis")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(20, -8)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8.125, -4)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_po3qk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(40, -14)
+scale = Vector2(2, 2)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(18.5, -18)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_axhjh")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_glqxm")]
+tile_map_data = PackedByteArray("AAD7//7/AAAwAAgAAAD7////AAAwAAkAAAD8//7/AAAxAAgAAAD8////AAAxAAkAAAD9//7/AAAyAAgAAAD9////AAAyAAkAAAD+//7/AAAzAAgAAAD+////AAAzAAkAAAD///7/AAA0AAgAAAD/////AAA0AAkAAAAAAP7/AAA1AAgAAAAAAP//AAA1AAkAAAABAP7/AAA1AAgAAAABAP//AAA1AAkAAAACAP7/AAA2AAgAAAACAP//AAA2AAkAAAADAP7/AAA3AAgAAAADAP//AAA3AAkAAAA=")

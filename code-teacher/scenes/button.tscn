@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://djh4lx07epoua"]
+
+[ext_resource type="Texture2D" uid="uid://dwhxa5s6156rb" path="res://assets/ui_pack/Vector/hexagon_damaged_brown.svg" id="1_jrefp"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="2_baclm"]
+[ext_resource type="PackedScene" uid="uid://bd5btkinad1k3" path="res://assets/interaction/interaction area/interaction_area.tscn" id="3_864qp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2e5r"]
+radius = 62.8172
+
+[node name="Button" type="Sprite2D"]
+position = Vector2(1211, 333)
+texture = ExtResource("1_jrefp")
+script = ExtResource("2_baclm")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_864qp")]
+action_name = "USE COMMAND"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_o2e5r")

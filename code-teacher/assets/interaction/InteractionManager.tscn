@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ckmr3i4dgtf"]
+
+[ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="1_3wcib"]
+[ext_resource type="Script" path="res://assets/interaction/interaction_manager.gd" id="1_x0yus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwo6j"]
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_x0yus")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_3wcib")
+text = "[F] TO INTERACT"
+label_settings = SubResource("LabelSettings_pwo6j")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck00vkgat3ntf"]
+
+[ext_resource type="Script" path="res://video system/scripts/video_player.gd" id="2_yor7o"]
+[ext_resource type="PackedScene" uid="uid://bd5btkinad1k3" path="res://assets/interaction/interaction area/interaction_area.tscn" id="3_tsssn"]
+[ext_resource type="Texture2D" uid="uid://b0vtf5qlyhp0w" path="res://video system/screen.png" id="4_y4hou"]
+[ext_resource type="Texture2D" uid="uid://dc574hrmlly1h" path="res://video system/tv_button.png" id="5_7ii44"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eurvt"]
+radius = 56.3205
+
+[node name="VideoPlayer" type="VideoStreamPlayer"]
+offset_right = 494.0
+offset_bottom = 278.0
+expand = true
+script = ExtResource("2_yor7o")
+
+[node name="Screen" type="Sprite2D" parent="."]
+position = Vector2(248.5, 149)
+scale = Vector2(0.994231, 1)
+texture = ExtResource("4_y4hou")
+
+[node name="TvButton" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(249, 300)
+texture = ExtResource("5_7ii44")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_tsssn")]
+position = Vector2(250, 281)
+action_name = "start video"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_eurvt")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dje11ndsl8gn2"]
+
+[ext_resource type="Shader" path="res://background system/shaders/scrolling_bg.gdshader" id="1_mxvtn"]
+[ext_resource type="Texture2D" uid="uid://c0o38r8q150u2" path="res://assets/ui_pack/PNG/Double/bg.jpg" id="2_wes6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oig6v"]
+shader = ExtResource("1_mxvtn")
+shader_parameter/Top_Color = Color(0, 0, 0, 1)
+shader_parameter/Mid_Color = Color(0, 0, 0.180392, 1)
+shader_parameter/Bot_Color = Color(0, 0, 0, 1)
+shader_parameter/pattern_color = Color(0, 0.317647, 0.721569, 1)
+shader_parameter/scale = 3.44
+shader_parameter/ratio = 0.575
+shader_parameter/pattern_sampler = ExtResource("2_wes6t")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_oig6v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

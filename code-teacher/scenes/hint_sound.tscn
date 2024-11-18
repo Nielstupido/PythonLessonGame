@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://chwuh7tyspwf"]
+
+[ext_resource type="Texture2D" uid="uid://ddc3uq1o23tyg" path="res://assets/ui_pack/PNG/Double/minimap_icon_exclamation_red.png" id="1_0rwcu"]
+[ext_resource type="Script" path="res://scripts/hint_sound.gd" id="2_thb2u"]
+[ext_resource type="PackedScene" uid="uid://bd5btkinad1k3" path="res://assets/interaction/interaction area/interaction_area.tscn" id="2_wraay"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iiaxb"]
+radius = 23.0868
+
+[node name="hint_sound" type="Sprite2D"]
+texture = ExtResource("1_0rwcu")
+script = ExtResource("2_thb2u")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_wraay")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_iiaxb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
