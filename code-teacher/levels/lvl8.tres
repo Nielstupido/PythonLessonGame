@@ -1,7 +1,13 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d2titklxvvyr2"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://d2titklxvvyr2"]
 
+[ext_resource type="PackedScene" uid="uid://bj0fnujhmrsl1" path="res://scenes/level_8.tscn" id="1_25yeb"]
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_odaxp"]
 
 [resource]
 script = ExtResource("1_odaxp")
-level_objectives = ""
+level_number = 8
+quiz_level_number = 0
+level_scene = ExtResource("1_25yeb")
+level_title = "Level 8: Functions with Parameters"
+level_objectives = "Add parameters to functions for flexibility (e.g., \"Move forward X steps\")"
+level_skills = ""

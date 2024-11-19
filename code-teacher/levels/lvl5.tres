@@ -1,7 +1,12 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dec2120cyxrge"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dec2120cyxrge"]
 
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_hbqll"]
+[ext_resource type="PackedScene" uid="uid://cspmeu0u8nr7l" path="res://scenes/level_5.tscn" id="1_ookdr"]
 
 [resource]
 script = ExtResource("1_hbqll")
-level_objectives = ""
+level_number = 5
+level_scene = ExtResource("1_ookdr")
+level_title = "Level 5: Advanced Conditionals"
+level_objectives = "Use multiple branches with \"else if\" for complex decision trees."
+level_skills = ""

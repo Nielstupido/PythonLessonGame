@@ -1,7 +1,12 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://urn8quh0b7og"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://urn8quh0b7og"]
 
+[ext_resource type="PackedScene" uid="uid://dt2jab7am6q1a" path="res://scenes/level2.tscn" id="1_upc1w"]
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_w7wj0"]
 
 [resource]
 script = ExtResource("1_w7wj0")
-level_objectives = ""
+level_number = 2
+level_scene = ExtResource("1_upc1w")
+level_title = "Level 2: Loops"
+level_objectives = "Introduction to loops for repeating actions."
+level_skills = ""

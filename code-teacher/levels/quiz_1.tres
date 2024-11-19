@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://bc4gk3755p42h"]
+
+[ext_resource type="PackedScene" uid="uid://wyurqdgwlggu" path="res://scenes/quiz_level_1.tscn" id="1_8tc4a"]
+[ext_resource type="Script" path="res://levels/level_data.gd" id="2_lrmuf"]
+
+[resource]
+script = ExtResource("2_lrmuf")
+level_number = 0
+quiz_level_number = 1
+level_scene = ExtResource("1_8tc4a")
+level_title = "Quiz 1 (After Level 5): Review of Sequencing, Loops, and Conditionals"
+level_objectives = "Sequencing of commands, Using loops for repetitive tasks, Conditional logic for decision-making"
+level_skills = ""

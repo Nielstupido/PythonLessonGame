@@ -1,7 +1,12 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dxmqbftqvyxo3"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dxmqbftqvyxo3"]
 
+[ext_resource type="PackedScene" uid="uid://xg7majr2y35j" path="res://scenes/level_7.tscn" id="1_ehmqu"]
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_qyeds"]
 
 [resource]
 script = ExtResource("1_qyeds")
-level_objectives = ""
+level_number = 7
+level_scene = ExtResource("1_ehmqu")
+level_title = "Level 7: Basic Functions"
+level_objectives = "Create reusable blocks of commands with functions."
+level_skills = ""

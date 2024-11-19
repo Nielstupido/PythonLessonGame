@@ -1,22 +1,108 @@
-[gd_scene load_steps=16 format=3 uid="uid://2bp87shqnigy"]
+[gd_scene load_steps=29 format=3 uid="uid://2bp87shqnigy"]
 
 [ext_resource type="Script" path="res://scenes/level_map_manager.gd" id="1_6uwso"]
 [ext_resource type="PackedScene" uid="uid://duhm48nuq1ni3" path="res://scenes/lvl_button.tscn" id="1_7bab2"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="1_k6vei"]
 [ext_resource type="Texture2D" uid="uid://dh3m8hwp7e5e3" path="res://assets/map bg.jpg" id="1_lrbyu"]
-[ext_resource type="PackedScene" uid="uid://bbp0vilabhiys" path="res://scenes/level_1.tscn" id="3_un87k"]
-[ext_resource type="PackedScene" uid="uid://dxu4sh1t68wv" path="res://scenes/level3.tscn" id="4_2fbil"]
-[ext_resource type="PackedScene" uid="uid://b0a6sffprjuth" path="res://scenes/level_6.tscn" id="4_tdx3r"]
-[ext_resource type="PackedScene" uid="uid://dt2jab7am6q1a" path="res://scenes/level2.tscn" id="5_nrm27"]
-[ext_resource type="PackedScene" uid="uid://dfevw5dudq78m" path="res://scenes/level_4.tscn" id="7_a20x6"]
-[ext_resource type="PackedScene" uid="uid://wyurqdgwlggu" path="res://scenes/quiz_level_1.tscn" id="8_gxfmq"]
-[ext_resource type="PackedScene" uid="uid://cspmeu0u8nr7l" path="res://scenes/level_5.tscn" id="10_bdglc"]
-[ext_resource type="PackedScene" uid="uid://xg7majr2y35j" path="res://scenes/level_7.tscn" id="11_airfr"]
-[ext_resource type="PackedScene" uid="uid://bj0fnujhmrsl1" path="res://scenes/level_8.tscn" id="12_7ka82"]
-[ext_resource type="PackedScene" uid="uid://u8cop2tb1y2g" path="res://scenes/level_9.tscn" id="13_h531f"]
-[ext_resource type="PackedScene" uid="uid://c2hdektro4tju" path="res://scenes/level_10.tscn" id="14_ylbo8"]
+[ext_resource type="Resource" uid="uid://urn8quh0b7og" path="res://levels/lvl2.tres" id="6_382rl"]
+[ext_resource type="Resource" uid="uid://dojmhnvoobj78" path="res://levels/lvl1.tres" id="6_m0bv4"]
+[ext_resource type="Resource" uid="uid://cr7ti4ouc52a8" path="res://levels/lvl3.tres" id="7_ctgmg"]
+[ext_resource type="Resource" uid="uid://c5vjhhpp6p8ib" path="res://levels/lvl4.tres" id="8_w5g2m"]
+[ext_resource type="Resource" uid="uid://dec2120cyxrge" path="res://levels/lvl5.tres" id="9_cv6tf"]
+[ext_resource type="Resource" uid="uid://bc4gk3755p42h" path="res://levels/quiz_1.tres" id="10_8dvvn"]
+[ext_resource type="Resource" uid="uid://lud53rebr0e1" path="res://levels/lvl6.tres" id="11_c1xo7"]
+[ext_resource type="Resource" uid="uid://dxmqbftqvyxo3" path="res://levels/lvl7.tres" id="12_rjv15"]
+[ext_resource type="Resource" uid="uid://d2titklxvvyr2" path="res://levels/lvl8.tres" id="13_iarii"]
+[ext_resource type="Resource" uid="uid://b053iy88n4sbu" path="res://levels/lvl9.tres" id="14_7hl0h"]
+[ext_resource type="Resource" uid="uid://brwpdxssrh7g3" path="res://levels/lvl10.tres" id="15_f4usa"]
+[ext_resource type="Texture2D" uid="uid://dmyqryuowmn5y" path="res://assets/ui_pack/check.png" id="16_54i8j"]
+[ext_resource type="Resource" uid="uid://k37r178qtmnn" path="res://levels/quiz_2.tres" id="16_hcrs4"]
 
-[node name="LevelSelectScreen" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2g7d"]
+bg_color = Color(0.319856, 0.452785, 0.159953, 1)
+border_width_bottom = 10
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcj4l"]
+bg_color = Color(0.503644, 0.455142, 0.149931, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_color = Color(0.530029, 0.912455, 0.287633, 0.52549)
+shadow_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwkfy"]
+font_size = 30
+font_color = Color(0.799642, 0.873431, 0.44295, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2f70u"]
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ee4"]
+bg_color = Color(0.501961, 0.847059, 0.32549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.262745, 0.184314, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30mif"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.262507, 0.184209, 0.201841, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x406s"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.858824)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ar8ft"]
+line_spacing = 0.0
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj75t"]
+bg_color = Color(0.672623, 0.598891, 0.311696, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hrcb"]
+line_spacing = -4.71
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1x4p"]
+line_spacing = -4.71
+font_size = 18
+
+[node name="LevelSelectScreen" type="Control" node_paths=PackedStringArray("level_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +110,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6uwso")
+level_buttons = [NodePath("LvlButton1"), NodePath("LvlButton2"), NodePath("LvlButton3"), NodePath("LvlButton4"), NodePath("LvlButton5"), NodePath("LvlButtonQuiz1"), NodePath("LvlButton6"), NodePath("LvlButton7"), NodePath("LvlButton8"), NodePath("LvlButton9"), NodePath("LvlButton10"), NodePath("LvlButtonQuiz2")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,127 +144,163 @@ theme_override_fonts/font = ExtResource("1_k6vei")
 theme_override_font_sizes/font_size = 64
 text = "Select Level"
 
-[node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
-layout_mode = 0
-offset_left = 823.0
-offset_top = 445.0
-offset_right = 958.0
-offset_bottom = 515.0
-text = "Level 6
-"
-selected_level = ExtResource("4_tdx3r")
-
 [node name="LvlButton1" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -676.0
-offset_top = 1000.0
-offset_right = -548.0
-offset_bottom = 1068.0
+offset_left = -688.0
+offset_top = 975.0
+offset_right = -518.0
+offset_bottom = 1055.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 1"
-selected_level = ExtResource("3_un87k")
+level_data = ExtResource("6_m0bv4")
 
 [node name="LvlButton2" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -552.0
-offset_top = 923.0
-offset_right = -427.0
-offset_bottom = 985.0
+offset_left = -475.0
+offset_top = 879.0
+offset_right = -305.0
+offset_bottom = 959.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 2"
-selected_level = ExtResource("5_nrm27")
+level_data = ExtResource("6_382rl")
 
 [node name="LvlButton3" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -466.0
-offset_top = 832.0
-offset_right = -322.0
-offset_bottom = 906.0
+offset_left = -423.0
+offset_top = 731.0
+offset_right = -253.0
+offset_bottom = 811.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 3"
-selected_level = ExtResource("4_2fbil")
+level_data = ExtResource("7_ctgmg")
 
 [node name="LvlButton4" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -367.0
-offset_top = 742.0
-offset_right = -223.0
-offset_bottom = 816.0
+offset_left = -187.0
+offset_top = 650.0
+offset_right = -17.0
+offset_bottom = 730.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 4
 "
-selected_level = ExtResource("7_a20x6")
-
-[node name="LvlButtonQuiz1" parent="." instance=ExtResource("1_7bab2")]
-layout_mode = 0
-offset_left = 806.0
-offset_top = 561.0
-offset_right = 926.0
-offset_bottom = 631.0
-text = "Quiz Level 1"
-selected_level = ExtResource("8_gxfmq")
+level_data = ExtResource("8_w5g2m")
 
 [node name="LvlButton5" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
-offset_left = 707.0
-offset_top = 649.0
-offset_right = 839.0
-offset_bottom = 728.0
+offset_left = 732.0
+offset_top = 530.0
+offset_right = 902.0
+offset_bottom = 610.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 5
 "
-selected_level = ExtResource("10_bdglc")
+level_data = ExtResource("9_cv6tf")
+
+[node name="LvlButtonQuiz1" parent="." instance=ExtResource("1_7bab2")]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 0
+offset_left = 854.0
+offset_top = 395.0
+offset_right = 1034.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
+text = "Quiz Level 1"
+level_data = ExtResource("10_8dvvn")
+
+[node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 296.0
+offset_right = 830.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
+text = "Level 6
+"
+level_data = ExtResource("11_c1xo7")
 
 [node name="LvlButton7" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
-offset_left = 761.0
-offset_top = 334.0
-offset_right = 892.0
-offset_bottom = 409.0
+offset_left = 836.0
+offset_top = 179.0
+offset_right = 1006.0
+offset_bottom = 259.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 7
 "
-selected_level = ExtResource("11_airfr")
+level_data = ExtResource("12_rjv15")
 
 [node name="LvlButton8" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 225.0
-offset_right = 912.0
-offset_bottom = 300.0
+offset_left = 1068.0
+offset_top = 240.0
+offset_right = 1238.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 8
 "
-selected_level = ExtResource("12_7ka82")
+level_data = ExtResource("13_iarii")
 
 [node name="LvlButton9" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
-offset_left = 964.0
-offset_top = 190.0
-offset_right = 1106.0
-offset_bottom = 256.0
+offset_left = 1298.0
+offset_top = 200.0
+offset_right = 1468.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 9
 "
-selected_level = ExtResource("13_h531f")
+level_data = ExtResource("14_7hl0h")
 
 [node name="LvlButton10" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
-offset_left = 964.0
-offset_top = 190.0
-offset_right = 1106.0
-offset_bottom = 256.0
-text = "Level 9
+offset_left = 1470.0
+offset_top = 310.0
+offset_right = 1640.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
+text = "Level 10
 "
-selected_level = ExtResource("14_ylbo8")
+level_data = ExtResource("15_f4usa")
+
+[node name="LvlButtonQuiz2" parent="." instance=ExtResource("1_7bab2")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_left = 1647.0
+offset_top = 204.0
+offset_right = 1827.0
+offset_bottom = 284.0
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
+text = "Quiz Level 2
+"
+level_data = ExtResource("16_hcrs4")
 
 [node name="LevelInfo" type="Panel" parent="."]
 layout_mode = 1
@@ -189,6 +312,184 @@ anchor_bottom = 1.0
 offset_left = -725.0
 offset_top = -409.0
 offset_right = -84.0
-offset_bottom = -71.0
+offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcj4l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelInfo"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_right = 250.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9984, 1.01879)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LevelTitle" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Level 1 : Advanced Conditionals"
+label_settings = SubResource("LabelSettings_mwkfy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="LevelInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="Objective" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Learning Objective : Sequencing commands in Python."
+label_settings = SubResource("LabelSettings_2f70u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillsPracticed" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Skills Practiced : Using loops, decision-making"
+label_settings = SubResource("LabelSettings_2f70u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer2" type="Control" parent="LevelInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReplayButton" type="Button" parent="LevelInfo/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(190, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_j4ee4")
+text = "Replay_Level()"
+
+[node name="PlayButton" type="Button" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(170, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_j4ee4")
+text = "Play_Level()"
+
+[node name="Checkbox" type="Panel" parent="LevelInfo"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 68.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_30mif")
+
+[node name="Checkmark" type="TextureRect" parent="LevelInfo/Checkbox"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 4.0
+offset_top = -10.0
+offset_right = 64.0
+offset_bottom = 50.0
+texture = ExtResource("16_54i8j")
+expand_mode = 1
+
+[node name="ScoreStatsContainer" type="Panel" parent="LevelInfo"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+offset_left = 20.0
+offset_top = -130.0
+offset_right = 120.0
+offset_bottom = -10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x406s")
+
+[node name="Score" type="Label" parent="LevelInfo/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "100"
+label_settings = SubResource("LabelSettings_ar8ft")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="LevelInfo/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kj75t")
+text = "Score"
+label_settings = SubResource("LabelSettings_0hrcb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MistakesStatsContainer" type="Panel" parent="LevelInfo"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = -130.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x406s")
+
+[node name="Mistakes" type="Label" parent="LevelInfo/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "4
+"
+label_settings = SubResource("LabelSettings_ar8ft")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="LevelInfo/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kj75t")
+text = "Mistakes
+"
+label_settings = SubResource("LabelSettings_f1x4p")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="LevelInfo/VBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="LevelInfo/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

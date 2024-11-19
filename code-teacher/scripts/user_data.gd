@@ -12,16 +12,18 @@ var player_game_data = {
 	"password" : "",
 	"current_level" : 0,
 	"total_points" : 0,
-	"level_1" : ["locked", 0, 0], #"level_number" : [level_status, level_points, level_mistakes]
-	"level_2" : ["locked", 0, 0],
-	"level_3" : ["locked", 0, 0],
-	"level_4" : ["locked", 0, 0],
-	"level_5" : ["locked", 0, 0],
-	"level_6" : ["locked", 0, 0],
-	"level_7" : ["locked", 0, 0],
-	"level_8" : ["locked", 0, 0],
-	"level_9" : ["locked", 0, 0],
-	"level_10" : ["locked", 0, 0],
+	"level_1" : ["UNCOMPLETE", 0, 0], #"level_number" : [level_status, level_points, level_mistakes]
+	"level_2" : ["UNCOMPLETE", 0, 0],
+	"level_3" : ["UNCOMPLETE", 0, 0],
+	"level_4" : ["UNCOMPLETE", 0, 0],
+	"level_5" : ["LOCKED", 0, 0],
+	"level_6" : ["LOCKED", 0, 0],
+	"level_7" : ["COMPLETED", 0, 0],
+	"level_8" : ["COMPLETED", 0, 0],
+	"level_9" : ["LOCKED", 0, 0],
+	"level_10" : ["LOCKED", 0, 0],
+	"quiz_level_1" : ["LOCKED", 0, 0],
+	"quiz_level_2" : ["LOCKED", 0, 0],
 }
 
 
