@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://2bp87shqnigy"]
+[gd_scene load_steps=38 format=3 uid="uid://2bp87shqnigy"]
 
 [ext_resource type="Script" path="res://scenes/level_map_manager.gd" id="1_6uwso"]
 [ext_resource type="PackedScene" uid="uid://duhm48nuq1ni3" path="res://scenes/lvl_button.tscn" id="1_7bab2"]
@@ -101,6 +101,136 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_f1x4p"]
 line_spacing = -4.71
 font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xybiv"]
+bg_color = Color(0.324005, 0.29187, 0.0823383, 0.843)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14ui8"]
+bg_color = Color(0.635294, 0.545098, 0.380392, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_size = 5
+
+[sub_resource type="Shader" id="Shader_n213j"]
+code = "shader_type canvas_item;
+
+uniform float value : hint_range(0.0, 1.0) = 1.0;
+uniform int segments = 1;
+uniform float radius = 0.475;
+uniform float hollow_radius = 0.0;
+uniform float margin : hint_range(0.0, 1.0) = 0.0;
+uniform float rotation : hint_range(-1.0, 1.0);
+uniform float progress_rotation : hint_range(-1.0, 1.0);
+uniform sampler2D gradient : source_color;
+uniform bool use_value_gradient = false;
+uniform sampler2D radius_curve;
+
+
+vec4 get_gradient_color(sampler2D src, float position) {
+	position = clamp(position, 0.01, 0.99); // Color at 0.0 and 1.0 get interpolated by both end
+    return texture(src, vec2(position, 0.5));
+}
+
+float map_range(float min1, float max1, float min2, float max2, float v) {
+	float p = (v - min1) / (max1 - min1);
+	return p * (max2 - min2) + min2;
+}
+
+vec2 rotate_uv(vec2 uv, float p_rotation){
+    float mid = 0.5;
+    return vec2(
+        cos(p_rotation) * (uv.x - mid) + sin(p_rotation) * (uv.y - mid) + mid,
+        cos(p_rotation) * (uv.y - mid) - sin(p_rotation) * (uv.x - mid) + mid
+    );
+}
+
+float circle_shape(vec2 uv, float p_radius) {
+	vec2 center = vec2(0.5, 0.5);
+	return 1.0 - step(p_radius, distance(center, uv));
+}
+
+float radial_shape(vec2 uv, int p_segments) {
+	float radial = 0.0;
+	uv -= 0.5;
+	radial = atan(uv.y, uv.x);
+	radial = map_range(-PI, PI, 0.0, float(p_segments), radial);
+	radial = mod(radial, 1.0);
+	
+	return radial;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv = rotate_uv(uv, PI/2.0); // Rotate 90 degrees, so origin pointing at north be default
+	uv = rotate_uv(uv, rotation * PI);
+	
+	float t = radial_shape(uv, 1);
+	if (use_value_gradient) {
+		t = value;
+	}
+	float radius_t = get_gradient_color(radius_curve, radial_shape(uv, 1)).r;
+	
+	float shape = radial_shape(uv, segments);
+	float border_size = (1.0-margin)/2.0;
+	shape *= step(border_size, shape);
+	shape *= step(shape, 1.0 - border_size);
+	shape = step(shape, 0.0);
+	
+	uv = rotate_uv(uv, progress_rotation * PI);
+	float arc = radial_shape(uv, 1);
+	arc = step(arc, value);
+	
+	float bounds = circle_shape(uv, radius * radius_t);
+	float hollow = 1.0-circle_shape(uv, hollow_radius * radius_t);
+	
+	shape = shape * arc * bounds * hollow;
+	
+	vec4 gradient_color = get_gradient_color(gradient, t);
+	COLOR = vec4(gradient_color.rgb, shape);
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_w7cjt"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.6917, 1)
+colors = PackedColorArray(0.817958, 0.575937, 0.338307, 1, 1, 0.282353, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fkxqk"]
+gradient = SubResource("Gradient_w7cjt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvhmv"]
+shader = SubResource("Shader_n213j")
+shader_parameter/value = 0.929
+shader_parameter/segments = 0
+shader_parameter/radius = 0.455
+shader_parameter/hollow_radius = 0.305
+shader_parameter/margin = 0.0
+shader_parameter/rotation = 4.75e-08
+shader_parameter/progress_rotation = 4.75e-08
+shader_parameter/use_value_gradient = true
+shader_parameter/gradient = SubResource("GradientTexture1D_fkxqk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2jtue"]
+line_spacing = 0.0
+font = ExtResource("1_k6vei")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_54in2"]
+line_spacing = -4.71
+font = ExtResource("1_k6vei")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_waw1k"]
+line_spacing = 0.0
+font = ExtResource("1_k6vei")
+font_size = 40
 
 [node name="LevelSelectScreen" type="Control" node_paths=PackedStringArray("level_buttons")]
 layout_mode = 3
@@ -490,6 +620,180 @@ label_settings = SubResource("LabelSettings_f1x4p")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GameProgress" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 630)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -315.0
+offset_right = 190.0
+offset_bottom = 315.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xybiv")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="GameProgress"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LevelStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(130, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
+
+[node name="ProgressCircle" type="ColorRect" parent="GameProgress/HBoxContainer/LevelStatsContainer"]
+material = SubResource("ShaderMaterial_hvhmv")
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_top = 10.0
+offset_right = 42.5
+offset_bottom = 95.0
+grow_horizontal = 2
+color = Color(0.660328, 0.673245, 0.960767, 1)
+
+[node name="LevelsFinished" type="Label" parent="GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -21.5
+offset_right = 41.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2/7"
+label_settings = SubResource("LabelSettings_2jtue")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/LevelStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -65.0
+offset_right = 59.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Finished Levels"
+label_settings = SubResource("LabelSettings_54in2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScoreStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(130, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
+
+[node name="Score" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -51.5
+offset_right = 41.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_waw1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -66.0
+offset_right = 58.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Average Score"
+label_settings = SubResource("LabelSettings_54in2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MistakesStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(130, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
+
+[node name="Mistakes" type="Label" parent="GameProgress/HBoxContainer/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -51.5
+offset_right = 41.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_waw1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -66.0
+offset_right = 58.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Average Mistakes"
+label_settings = SubResource("LabelSettings_54in2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ReturnButton" type="Button" parent="."]
+custom_minimum_size = Vector2(220, 60)
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 260.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_k6vei")
+theme_override_font_sizes/font_size = 32
+text = "Return()"
 
 [connection signal="pressed" from="LevelInfo/VBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="LevelInfo/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

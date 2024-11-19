@@ -14,6 +14,7 @@ func _on_start_button_pressed():
 
 
 func _on_settings_button_pressed():
+	settings_screen.update_game_progress()
 	settings_screen.show()
 
 

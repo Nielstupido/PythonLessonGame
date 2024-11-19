@@ -10,13 +10,16 @@ extends Control
 @onready var level_mistakes_text = $LevelInfo/MistakesStatsContainer/Mistakes
 @onready var play_button = $LevelInfo/VBoxContainer/PlayButton
 @onready var replay_button = $LevelInfo/VBoxContainer/ReplayButton
+@onready var completed_levels = $GameProgress/HBoxContainer/ScoreStatsContainer/LevelsFinished
+@onready var avg_score = $GameProgress/HBoxContainer/ScoreStatsContainer/Score
+@onready var avg_mistakes = $GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
 var current_active_level_data = null
 
 
 func _ready():
 	level_information_panel.hide()
 	var level_number_str
-	#
+	#update_game_progress
 	#for btn in level_buttons:
 		#level_number_str = "level_" + str(btn.level_data.level_number)
 		#
@@ -60,6 +63,12 @@ func on_level_selected(level_data):
 		replay_button.show()
 	else:
 		play_button.show()
+
+
+func update_game_progress():
+	completed_levels.text = "1/1"
+	avg_score.text = "100"
+	avg_mistakes.text = "10"
 
 
 func _on_play_button_pressed():
