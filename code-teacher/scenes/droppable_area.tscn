@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd2fecafumyhj"]
+[gd_scene load_steps=4 format=3 uid="uid://cd2fecafumyhj"]
 
 [ext_resource type="Script" path="res://scripts/droppable_area.gd" id="1_pkoho"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y2tyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ki63"]
 size = Vector2(128, 124)
@@ -11,7 +9,6 @@ size = Vector2(128, 124)
 size = Vector2(120, 116)
 
 [node name="Droppable Area" type="StaticBody2D" groups=["droppable"]]
-physics_material_override = SubResource("PhysicsMaterial_y2tyu")
 script = ExtResource("1_pkoho")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

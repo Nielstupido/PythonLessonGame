@@ -8,7 +8,7 @@ func _ready():
 	self.hide()
 
 
-func set_error_msg(msg : String):
+func set_msg(msg : String):
 	self.show()
 	text = msg
 	timer.stop()

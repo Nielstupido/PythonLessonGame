@@ -23,9 +23,9 @@ func _on_login_button_pressed():
 		if USERDATA.players_dets[login_username_input.text] == login_password_input.text:
 			self.hide()
 		else:
-			error_msg.set_error_msg("Incorrect Password!")
+			error_msg.set_msg("Incorrect Password!")
 	else:
-		error_msg.set_error_msg("Username Not Found!")
+		error_msg.set_msg("Username Not Found!")
 
 
 func _on_create_account_button_pressed():
@@ -33,10 +33,11 @@ func _on_create_account_button_pressed():
 		return
 	
 	if USERDATA.players_dets.has(create_username_input.text):
-		error_msg.set_error_msg("Username Already Exists!")
+		error_msg.set_msg("Username Already Exists!")
 	else:
 		USERDATA.players_dets[create_username_input.text] = create_password_input.text
 		USERDATA.save_players_dets()
+		_on_go_to_log_in_pressed()
 		self.hide()
 
 

@@ -7,6 +7,7 @@ size = Vector2(6612, 160)
 
 [node name="Deathzone" type="Area2D"]
 collision_mask = 2
+monitorable = false
 script = ExtResource("1_bkbm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,14 +1,22 @@
-extends Control
-var initial_position
-@export var player : Player
+extends CanvasLayer
+
 
 func _ready():
 	$AnimationPlayer.play("RESET")
-	initial_position = global_position
+	resume()
+
+
+func _input(event):
+	if event.is_action_pressed("esc") and !get_tree().paused:
+		pause()
+	elif event.is_action_pressed("esc") and get_tree().paused:
+		resume()
+
 
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
+
 
 func pause():
 	get_tree().paused = true
@@ -26,14 +34,3 @@ func _on_resume_button_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()
-
-func testEsc():
-	if Input.is_action_just_pressed("esc") and !get_tree().paused:
-		global_position = player.global_position - Vector2(0, 50)
-		pause()
-	elif Input.is_action_just_pressed("esc") and get_tree().paused:
-		global_position = initial_position
-		resume()
-
-func _process(delta):
-	testEsc()

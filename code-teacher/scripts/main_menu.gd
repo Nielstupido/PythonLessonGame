@@ -1,6 +1,7 @@
 extends Control
 
 @onready var settings_screen = $SettingsScreen
+@onready var login_screen = $LoginScreen
 var level_map_scene = preload("res://scenes/level_select_screen.tscn")
 
 

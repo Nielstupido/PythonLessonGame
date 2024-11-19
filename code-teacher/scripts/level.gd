@@ -7,7 +7,6 @@ extends Node
 var collected_coins := 0
 
 func _ready():
-	hud.resume()
 	if level_num <= 2.0:
 		player.boy_sprite.visible = false
 		player.female_sprite.visible = false

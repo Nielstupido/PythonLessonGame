@@ -28,6 +28,7 @@ USERDATA="*res://scripts/user_data.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/subwindows/embed_subwindows=false
+window/vsync/vsync_mode=0
 mouse_cursor/size/initial_position=Vector2i(0, 0)
 
 [editor_plugins]

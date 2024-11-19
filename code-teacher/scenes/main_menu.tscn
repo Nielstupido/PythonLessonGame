@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://x4vu7fs8fhyv"]
+[gd_scene load_steps=37 format=4 uid="uid://x4vu7fs8fhyv"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_5ngsk"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="2_g1eam"]
@@ -159,13 +159,220 @@ font_color = Color(0.144605, 0.0686104, 0.163797, 1)
 outline_size = 2
 outline_color = Color(0.145098, 0.0666667, 0.164706, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceegc"]
-bg_color = Color(0.12401, 0.0853438, 0.0194743, 0.792157)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cey1"]
+bg_color = Color(0.12549, 0.0862745, 0.0196078, 0.815686)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaf3x"]
+bg_color = Color(0.12549, 0.0862745, 0.0196078, 0.556863)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bptwc"]
+bg_color = Color(0.876713, 0.708827, 0.422713, 0.780392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy6tc"]
+bg_color = Color(0.511949, 0.513834, 0.287586, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_color = Color(0.894922, 0.894922, 0.894922, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2seb"]
+bg_color = Color(0.12549, 0.0862745, 0.0196078, 0.945098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jukmc"]
+bg_color = Color(0.12549, 0.0862745, 0.0196078, 0.945098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o35mt"]
+bg_color = Color(0.572549, 0.439216, 0.2, 0.945098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk27u"]
+bg_color = Color(0.12549, 0.0862745, 0.0196078, 0.556863)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwdfe"]
+bg_color = Color(0.876713, 0.708827, 0.422713, 0.780392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57ja7"]
+bg_color = Color(0.571357, 0.438102, 0.20008, 0.945098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qwsx"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 0.32549)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6lmo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kub0n"]
+font = ExtResource("3_8v1cj")
+font_size = 50
+
+[sub_resource type="Shader" id="Shader_n213j"]
+code = "shader_type canvas_item;
+
+uniform float value : hint_range(0.0, 1.0) = 1.0;
+uniform int segments = 1;
+uniform float radius = 0.475;
+uniform float hollow_radius = 0.0;
+uniform float margin : hint_range(0.0, 1.0) = 0.0;
+uniform float rotation : hint_range(-1.0, 1.0);
+uniform float progress_rotation : hint_range(-1.0, 1.0);
+uniform sampler2D gradient : source_color;
+uniform bool use_value_gradient = false;
+uniform sampler2D radius_curve;
+
+
+vec4 get_gradient_color(sampler2D src, float position) {
+	position = clamp(position, 0.01, 0.99); // Color at 0.0 and 1.0 get interpolated by both end
+    return texture(src, vec2(position, 0.5));
+}
+
+float map_range(float min1, float max1, float min2, float max2, float v) {
+	float p = (v - min1) / (max1 - min1);
+	return p * (max2 - min2) + min2;
+}
+
+vec2 rotate_uv(vec2 uv, float p_rotation){
+    float mid = 0.5;
+    return vec2(
+        cos(p_rotation) * (uv.x - mid) + sin(p_rotation) * (uv.y - mid) + mid,
+        cos(p_rotation) * (uv.y - mid) - sin(p_rotation) * (uv.x - mid) + mid
+    );
+}
+
+float circle_shape(vec2 uv, float p_radius) {
+	vec2 center = vec2(0.5, 0.5);
+	return 1.0 - step(p_radius, distance(center, uv));
+}
+
+float radial_shape(vec2 uv, int p_segments) {
+	float radial = 0.0;
+	uv -= 0.5;
+	radial = atan(uv.y, uv.x);
+	radial = map_range(-PI, PI, 0.0, float(p_segments), radial);
+	radial = mod(radial, 1.0);
+	
+	return radial;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv = rotate_uv(uv, PI/2.0); // Rotate 90 degrees, so origin pointing at north be default
+	uv = rotate_uv(uv, rotation * PI);
+	
+	float t = radial_shape(uv, 1);
+	if (use_value_gradient) {
+		t = value;
+	}
+	float radius_t = get_gradient_color(radius_curve, radial_shape(uv, 1)).r;
+	
+	float shape = radial_shape(uv, segments);
+	float border_size = (1.0-margin)/2.0;
+	shape *= step(border_size, shape);
+	shape *= step(shape, 1.0 - border_size);
+	shape = step(shape, 0.0);
+	
+	uv = rotate_uv(uv, progress_rotation * PI);
+	float arc = radial_shape(uv, 1);
+	arc = step(arc, value);
+	
+	float bounds = circle_shape(uv, radius * radius_t);
+	float hollow = 1.0-circle_shape(uv, hollow_radius * radius_t);
+	
+	shape = shape * arc * bounds * hollow;
+	
+	vec4 gradient_color = get_gradient_color(gradient, t);
+	COLOR = vec4(gradient_color.rgb, shape);
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_goflo"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.6917, 1)
+colors = PackedColorArray(0.817958, 0.575937, 0.338307, 1, 1, 0.282353, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fkxqk"]
+gradient = SubResource("Gradient_goflo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5o1r"]
+shader = SubResource("Shader_n213j")
+shader_parameter/value = 0.929
+shader_parameter/segments = 0
+shader_parameter/radius = 0.455
+shader_parameter/hollow_radius = 0.305
+shader_parameter/margin = 0.0
+shader_parameter/rotation = 4.75e-08
+shader_parameter/progress_rotation = 4.75e-08
+shader_parameter/use_value_gradient = true
+shader_parameter/gradient = SubResource("GradientTexture1D_fkxqk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ck63r"]
+line_spacing = 0.0
+font = ExtResource("3_8v1cj")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqlrp"]
+line_spacing = -4.71
+font = ExtResource("3_8v1cj")
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_gd82q"]
+line_spacing = 0.0
+font = ExtResource("3_8v1cj")
+font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_g2mlf"]
 font_size = 25
@@ -177,19 +384,6 @@ content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 5.0
 bg_color = Color(0.190762, 0.190762, 0.190762, 0.643137)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qwsx"]
-content_margin_left = 8.0
-content_margin_top = 5.0
-content_margin_right = 8.0
-content_margin_bottom = 5.0
-bg_color = Color(1, 1, 1, 0.32549)
-border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -210,6 +404,7 @@ tile_map_data = PackedByteArray("AAD8//z/AQAYABgAAAD8//3/AQAYABkAAAD8//7/AQAYABo
 tile_set = SubResource("TileSet_7m07t")
 collision_enabled = false
 navigation_enabled = false
+metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -226,6 +421,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Code Playground"
 label_settings = SubResource("LabelSettings_kk6o1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -300,28 +497,22 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAYACAAAAAAAAEAAQAYACEAAAAAAAIAAQAYACI
 tile_set = SubResource("TileSet_0c8o6")
 collision_enabled = false
 navigation_enabled = false
-
-[node name="ReturnButton" type="Button" parent="SettingsScreen"]
-custom_minimum_size = Vector2(220, 60)
-layout_mode = 1
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 260.0
-offset_bottom = 100.0
-theme_override_fonts/font = ExtResource("3_8v1cj")
-theme_override_font_sizes/font_size = 32
-text = "Return()"
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
+layout_mode = 2
+offset_left = 591.0
+offset_right = 1321.0
+offset_bottom = 997.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="Spacer5" type="Control" parent="SettingsScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
 
 [node name="Title" type="Label" parent="SettingsScreen/VBoxContainer"]
 layout_mode = 2
@@ -370,6 +561,7 @@ theme_override_constants/separation = 30
 
 [node name="SfxOnButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -379,6 +571,7 @@ text = "ON"
 
 [node name="SfxOffButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -418,6 +611,7 @@ theme_override_constants/separation = 30
 
 [node name="MusicOnButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/SoundControls/MusicControl/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -427,6 +621,7 @@ text = "ON"
 
 [node name="MusicOffButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/SoundControls/MusicControl/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -471,6 +666,7 @@ theme_override_constants/separation = 30
 
 [node name="GameHintOnButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/GameHints/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -480,6 +676,7 @@ text = "ON"
 
 [node name="GameHintOffButton" type="CheckButton" parent="SettingsScreen/VBoxContainer/GameHints/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_icons/checked = ExtResource("5_26ois")
@@ -492,18 +689,346 @@ text = "OFF
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
+[node name="Spacer4" type="Control" parent="SettingsScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="ResetGameButton" type="Button" parent="SettingsScreen/VBoxContainer"]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.171834, 0.112915, 0.0374454, 1)
+theme_override_colors/font_pressed_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_focus_color = Color(0.580392, 0.419608, 0.215686, 1)
 theme_override_colors/font_color = Color(0.580392, 0.419608, 0.215686, 1)
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxFlat_ceegc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ceegc")
-text = "Reset Game Progress"
+theme_override_styles/focus = SubResource("StyleBoxFlat_2cey1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaf3x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bptwc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cey1")
+text = "Reset_Game_Progress()"
+
+[node name="LogoutButton" type="Button" parent="SettingsScreen/VBoxContainer"]
+custom_minimum_size = Vector2(130, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.171834, 0.112915, 0.0374454, 1)
+theme_override_colors/font_pressed_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_focus_color = Color(0.580392, 0.419608, 0.215686, 1)
+theme_override_colors/font_color = Color(0.580392, 0.419608, 0.215686, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_2cey1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaf3x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bptwc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cey1")
+text = "Log_Out()"
+
+[node name="Spacer6" type="Control" parent="SettingsScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="SettingsScreen"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 260.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_8v1cj")
+theme_override_font_sizes/font_size = 32
+text = "Return()"
+
+[node name="ResetConfirmationPanel" type="ColorRect" parent="SettingsScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.111151, 0.0106074, 0.0312934, 0.858824)
+
+[node name="Panel" type="Panel" parent="SettingsScreen/ResetConfirmationPanel"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yy6tc")
+
+[node name="RestConfirmationPanel" type="HBoxContainer" parent="SettingsScreen/ResetConfirmationPanel/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="ConfirmResetButton" type="Button" parent="SettingsScreen/ResetConfirmationPanel/Panel/RestConfirmationPanel"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.171834, 0.112915, 0.0374454, 1)
+theme_override_colors/font_pressed_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_focus_color = Color(0.580392, 0.419608, 0.215686, 1)
+theme_override_colors/font_color = Color(0.580392, 0.419608, 0.215686, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_p2seb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaf3x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bptwc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jukmc")
+text = "Confirm()"
+
+[node name="CancelResetButton" type="Button" parent="SettingsScreen/ResetConfirmationPanel/Panel/RestConfirmationPanel"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.171834, 0.112915, 0.0374454, 1)
+theme_override_colors/font_pressed_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_focus_color = Color(0.580392, 0.419608, 0.215686, 1)
+theme_override_colors/font_color = Color(0.137255, 0.101961, 0.0392157, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_o35mt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xk27u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gwdfe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_57ja7")
+text = "Cancel()"
+
+[node name="Label" type="Label" parent="SettingsScreen/ResetConfirmationPanel/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "Do you want to continue to reset your game progress?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PopupMessage" type="Label" parent="SettingsScreen"]
+custom_minimum_size = Vector2(100.03, 35)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -62.0
+offset_right = -23.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.817443, 0.786675, 0.161694, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_0qwsx")
+text = "Game Progress has been successfully reset!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_ltyec")
+
+[node name="Timer" type="Timer" parent="SettingsScreen/PopupMessage"]
+
+[node name="LevelsDataPanel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0109783, 0.000859622, 0.00229466, 0.572549)
+
+[node name="Panel" type="Panel" parent="LevelsDataPanel"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -679.0
+offset_top = -406.5
+offset_right = 679.0
+offset_bottom = 406.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yy6tc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelsDataPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelsDataPanel/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="LevelsDataPanel/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n6lmo")
+text = "Learn to arrange commands in a specific order."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelsDataPanel/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameProgress" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 591.0
+offset_top = 697.0
+offset_right = 1321.0
+offset_bottom = 1068.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Title" type="Label" parent="GameProgress"]
+layout_mode = 2
+text = "Player Progress"
+label_settings = SubResource("LabelSettings_kub0n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameProgress"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LevelStatsContainer" type="ColorRect" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(210, 260)
+layout_mode = 2
+color = Color(0, 0, 0, 0.458824)
+
+[node name="ProgressCircle" type="ColorRect" parent="GameProgress/HBoxContainer/LevelStatsContainer"]
+material = SubResource("ShaderMaterial_c5o1r")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+color = Color(0.660328, 0.673245, 0.960767, 1)
+
+[node name="LevelsFinished" type="Label" parent="GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -21.5
+offset_right = 41.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2/7"
+label_settings = SubResource("LabelSettings_ck63r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/LevelStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -65.0
+offset_right = 59.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Finished Levels"
+label_settings = SubResource("LabelSettings_yqlrp")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScoreStatsContainer" type="ColorRect" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(210, 260)
+layout_mode = 2
+color = Color(0, 0, 0, 0.458824)
+
+[node name="LevelsFinished" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -51.5
+offset_right = 41.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_gd82q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -66.0
+offset_right = 58.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Average Score"
+label_settings = SubResource("LabelSettings_yqlrp")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="LoginScreen" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,6 +1036,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_p2qqo")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="LoginScreen"]
 layout_mode = 1
@@ -745,7 +1271,6 @@ script = ExtResource("8_ltyec")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="SettingsScreen/ReturnButton" to="SettingsScreen" method="_on_return_button_pressed"]
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer/SfxOnButton" to="SettingsScreen" method="_on_sound_control_button_pressed" binds= ["on_sfx"]]
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer/SfxOffButton" to="SettingsScreen" method="_on_sound_control_button_pressed" binds= ["off_sfx"]]
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/SoundControls/MusicControl/VBoxContainer/HBoxContainer/MusicOnButton" to="SettingsScreen" method="_on_sound_control_button_pressed" binds= ["on_music"]]
@@ -753,6 +1278,11 @@ script = ExtResource("8_ltyec")
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/GameHints/VBoxContainer/HBoxContainer/GameHintOnButton" to="SettingsScreen" method="_on_game_hint_button_pressed" binds= ["on_hint"]]
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/GameHints/VBoxContainer/HBoxContainer/GameHintOffButton" to="SettingsScreen" method="_on_game_hint_button_pressed" binds= ["off_hint"]]
 [connection signal="pressed" from="SettingsScreen/VBoxContainer/ResetGameButton" to="SettingsScreen" method="_on_reset_game_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/VBoxContainer/LogoutButton" to="SettingsScreen" method="_on_logout_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/ReturnButton" to="SettingsScreen" method="_on_return_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/ResetConfirmationPanel/Panel/RestConfirmationPanel/ConfirmResetButton" to="SettingsScreen" method="_on_confirm_reset_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/ResetConfirmationPanel/Panel/RestConfirmationPanel/CancelResetButton" to="SettingsScreen" method="_on_cancel_reset_button_pressed"]
+[connection signal="timeout" from="SettingsScreen/PopupMessage/Timer" to="SettingsScreen/PopupMessage" method="_on_timer_timeout"]
 [connection signal="pressed" from="LoginScreen/Login/GoToCreateAccount" to="LoginScreen" method="_on_go_to_create_account_pressed"]
 [connection signal="pressed" from="LoginScreen/Login/LoginButton" to="LoginScreen" method="_on_login_button_pressed"]
 [connection signal="pressed" from="LoginScreen/CreateAccount/GoToLogIn" to="LoginScreen" method="_on_go_to_log_in_pressed"]

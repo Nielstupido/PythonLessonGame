@@ -1,6 +1,8 @@
 extends Control
 
 
+@onready var popup_msg = $PopupMessage
+@onready var reset_confirmation_panel = $ResetConfirmationPanel
 @onready var sfx_on_box = $VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer/SfxOnButton
 @onready var sfx_off_box = $VBoxContainer/SoundControls/SfxControl/VBoxContainer/HBoxContainer/SfxOffButton
 @onready var music_on_box = $VBoxContainer/SoundControls/MusicControl/VBoxContainer/HBoxContainer/MusicOnButton
@@ -16,6 +18,8 @@ func _ready():
 	music_off_box.button_pressed = false
 	game_hint_on_box.button_pressed = true
 	game_hint_off_box.button_pressed = false
+	reset_confirmation_panel.hide()
+	self.hide()
 
 
 func _on_return_button_pressed():
@@ -54,4 +58,21 @@ func _on_game_hint_button_pressed(button_name : String):
 
 
 func _on_reset_game_button_pressed():
+	reset_confirmation_panel.show()
+
+
+func _on_logout_button_pressed():
+	USERDATA.save_player_data()
+	USERDATA.clear_current_player_data()
+	owner.login_screen.show()
+	self.hide()
+
+
+func _on_confirm_reset_button_pressed():
+	reset_confirmation_panel.hide()
 	USERDATA.reset_player_game_data()
+	popup_msg.set_msg("Game Progress has been successfully reset!")
+
+
+func _on_cancel_reset_button_pressed():
+	reset_confirmation_panel.hide()

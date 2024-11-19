@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://2bp87shqnigy"]
+[gd_scene load_steps=16 format=3 uid="uid://2bp87shqnigy"]
 
+[ext_resource type="Script" path="res://scenes/level_map_manager.gd" id="1_6uwso"]
 [ext_resource type="PackedScene" uid="uid://duhm48nuq1ni3" path="res://scenes/lvl_button.tscn" id="1_7bab2"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="1_k6vei"]
 [ext_resource type="Texture2D" uid="uid://dh3m8hwp7e5e3" path="res://assets/map bg.jpg" id="1_lrbyu"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://xg7majr2y35j" path="res://scenes/level_7.tscn" id="11_airfr"]
 [ext_resource type="PackedScene" uid="uid://bj0fnujhmrsl1" path="res://scenes/level_8.tscn" id="12_7ka82"]
 [ext_resource type="PackedScene" uid="uid://u8cop2tb1y2g" path="res://scenes/level_9.tscn" id="13_h531f"]
+[ext_resource type="PackedScene" uid="uid://c2hdektro4tju" path="res://scenes/level_10.tscn" id="14_ylbo8"]
 
 [node name="LevelSelectScreen" type="Control"]
 layout_mode = 3
@@ -21,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6uwso")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -54,7 +57,7 @@ theme_override_fonts/font = ExtResource("1_k6vei")
 theme_override_font_sizes/font_size = 64
 text = "Select Level"
 
-[node name="LvlButton7" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 823.0
 offset_top = 445.0
@@ -64,7 +67,7 @@ text = "Level 6
 "
 selected_level = ExtResource("4_tdx3r")
 
-[node name="LvlButton" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton1" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -117,7 +120,7 @@ text = "Level 4
 "
 selected_level = ExtResource("7_a20x6")
 
-[node name="LvlButton5" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButtonQuiz1" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 806.0
 offset_top = 561.0
@@ -126,7 +129,7 @@ offset_bottom = 631.0
 text = "Quiz Level 1"
 selected_level = ExtResource("8_gxfmq")
 
-[node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton5" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 707.0
 offset_top = 649.0
@@ -136,7 +139,7 @@ text = "Level 5
 "
 selected_level = ExtResource("10_bdglc")
 
-[node name="LvlButton8" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton7" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 761.0
 offset_top = 334.0
@@ -146,7 +149,7 @@ text = "Level 7
 "
 selected_level = ExtResource("11_airfr")
 
-[node name="LvlButton9" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton8" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 768.0
 offset_top = 225.0
@@ -156,7 +159,7 @@ text = "Level 8
 "
 selected_level = ExtResource("12_7ka82")
 
-[node name="LvlButton10" parent="." instance=ExtResource("1_7bab2")]
+[node name="LvlButton9" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
 offset_left = 964.0
 offset_top = 190.0
@@ -165,3 +168,27 @@ offset_bottom = 256.0
 text = "Level 9
 "
 selected_level = ExtResource("13_h531f")
+
+[node name="LvlButton10" parent="." instance=ExtResource("1_7bab2")]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 190.0
+offset_right = 1106.0
+offset_bottom = 256.0
+text = "Level 9
+"
+selected_level = ExtResource("14_ylbo8")
+
+[node name="LevelInfo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -725.0
+offset_top = -409.0
+offset_right = -84.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
