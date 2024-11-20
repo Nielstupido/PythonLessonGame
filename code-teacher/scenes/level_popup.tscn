@@ -1,8 +1,43 @@
-[gd_scene format=3 uid="uid://218s5mfe1qlt"]
+[gd_scene load_steps=6 format=3 uid="uid://218s5mfe1qlt"]
+
+[ext_resource type="Script" path="res://scripts/level_popup.gd" id="1_l8366"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ujrv"]
+bg_color = Color(0.503644, 0.455142, 0.149931, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_color = Color(0.530029, 0.912455, 0.287633, 0.52549)
+shadow_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_04gb4"]
+font_size = 30
+font_color = Color(0.799642, 0.873431, 0.44295, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggq35"]
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4amy6"]
+bg_color = Color(0.501961, 0.847059, 0.32549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.262745, 0.184314, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
 
 [node name="LevelPopup" type="CanvasLayer"]
+script = ExtResource("1_l8366")
 
-[node name="Panel" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,15 +45,75 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.211)
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="LevelInfo" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -328.0
-offset_right = 763.0
-offset_bottom = 96.0
+offset_left = -320.5
+offset_top = -186.5
+offset_right = 320.5
+offset_bottom = 186.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(320.5, 187.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ujrv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelInfo"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_right = 250.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9984, 1.01879)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LevelTitle" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Level 1 : Advanced Conditionals"
+label_settings = SubResource("LabelSettings_04gb4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="LevelInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="Objective" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Learning Objective : Sequencing commands in Python."
+label_settings = SubResource("LabelSettings_ggq35")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillsPracticed" type="Label" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Skills Practiced : Using loops, decision-making"
+label_settings = SubResource("LabelSettings_ggq35")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer2" type="Control" parent="LevelInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="LevelInfo/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4amy6")
+text = "Close()"
+
+[connection signal="pressed" from="LevelInfo/VBoxContainer/Close" to="." method="_on_close_pressed"]

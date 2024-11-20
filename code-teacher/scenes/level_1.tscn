@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://bbp0vilabhiys"]
+[gd_scene load_steps=22 format=4 uid="uid://bbp0vilabhiys"]
 
 [ext_resource type="Texture2D" uid="uid://c7r272gk5p2t8" path="res://assets/background/backgroundCastles.png" id="1_1d6ax"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ptlsi"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="2_dkm1d"]
 [ext_resource type="PackedScene" uid="uid://dt2jab7am6q1a" path="res://scenes/level2.tscn" id="2_pctni"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="3_i18uv"]
+[ext_resource type="Resource" uid="uid://dojmhnvoobj78" path="res://levels/lvl1.tres" id="3_jxtgj"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="4_8fop8"]
 [ext_resource type="PackedScene" uid="uid://cd2fecafumyhj" path="res://scenes/droppable_area.tscn" id="5_bqvbv"]
 [ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="6_j1kwd"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3d7lb28vge0" path="res://scenes/player_stop_area.tscn" id="12_1q57f"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_j7rxn"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="14_wbaor"]
+[ext_resource type="PackedScene" uid="uid://218s5mfe1qlt" path="res://scenes/level_popup.tscn" id="15_bpmr0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fp58"]
 texture = ExtResource("3_i18uv")
@@ -2505,6 +2507,7 @@ size = Vector2(62.125, 599.715)
 position = Vector2(0, 221)
 script = ExtResource("1_ptlsi")
 NextLevel = ExtResource("2_pctni")
+level_data_copy = ExtResource("3_jxtgj")
 level_name = "level1"
 level_num = 1.0
 
@@ -2725,6 +2728,8 @@ size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("1_1d6ax")
 stretch_mode = 1
+
+[node name="LevelPopup" parent="." instance=ExtResource("15_bpmr0")]
 
 [node name="Droppable Area5" parent="." instance=ExtResource("5_bqvbv")]
 position = Vector2(10608, -407)

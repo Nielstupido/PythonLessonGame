@@ -5,7 +5,7 @@ extends Control
 @onready var level_checkmamrk = $LevelInfo/Checkbox/Checkmark
 @onready var level_title = $LevelInfo/VBoxContainer/LevelTitle
 @onready var level_objectives_text = $LevelInfo/VBoxContainer/Objective
-@onready var level_skills_text = $"LevelInfo/VBoxContainer/SkillsPracticed"
+@onready var level_skills_text = $LevelInfo/VBoxContainer/SkillsPracticed
 @onready var level_scores_text = $LevelInfo/ScoreStatsContainer/Score
 @onready var level_mistakes_text = $LevelInfo/MistakesStatsContainer/Mistakes
 @onready var play_button = $LevelInfo/VBoxContainer/PlayButton

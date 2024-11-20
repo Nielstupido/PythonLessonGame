@@ -290,7 +290,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 1"
-level_data = ExtResource("6_m0bv4")
+level_data_copy = ExtResource("6_m0bv4")
 
 [node name="LvlButton2" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -305,7 +305,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 2"
-level_data = ExtResource("6_382rl")
+level_data_copy = ExtResource("6_382rl")
 
 [node name="LvlButton3" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -320,7 +320,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 3"
-level_data = ExtResource("7_ctgmg")
+level_data_copy = ExtResource("7_ctgmg")
 
 [node name="LvlButton4" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -336,7 +336,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 4
 "
-level_data = ExtResource("8_w5g2m")
+level_data_copy = ExtResource("8_w5g2m")
 
 [node name="LvlButton5" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -348,7 +348,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 5
 "
-level_data = ExtResource("9_cv6tf")
+level_data_copy = ExtResource("9_cv6tf")
 
 [node name="LvlButtonQuiz1" parent="." instance=ExtResource("1_7bab2")]
 custom_minimum_size = Vector2(180, 80)
@@ -360,7 +360,7 @@ offset_bottom = 475.0
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Quiz 1"
-level_data = ExtResource("10_8dvvn")
+level_data_copy = ExtResource("10_8dvvn")
 
 [node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -372,7 +372,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 6
 "
-level_data = ExtResource("11_c1xo7")
+level_data_copy = ExtResource("11_c1xo7")
 
 [node name="LvlButton7" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -384,7 +384,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 7
 "
-level_data = ExtResource("12_rjv15")
+level_data_copy = ExtResource("12_rjv15")
 
 [node name="LvlButton8" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -396,7 +396,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 8
 "
-level_data = ExtResource("13_iarii")
+level_data_copy = ExtResource("13_iarii")
 
 [node name="LvlButton9" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -408,7 +408,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 9
 "
-level_data = ExtResource("14_7hl0h")
+level_data_copy = ExtResource("14_7hl0h")
 
 [node name="LvlButton10" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -420,7 +420,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 10
 "
-level_data = ExtResource("15_f4usa")
+level_data_copy = ExtResource("15_f4usa")
 
 [node name="LvlButtonQuiz2" parent="." instance=ExtResource("1_7bab2")]
 custom_minimum_size = Vector2(0, 80)
@@ -433,7 +433,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Quiz 2
 "
-level_data = ExtResource("16_hcrs4")
+level_data_copy = ExtResource("16_hcrs4")
 
 [node name="LevelInfo" type="Panel" parent="."]
 layout_mode = 1

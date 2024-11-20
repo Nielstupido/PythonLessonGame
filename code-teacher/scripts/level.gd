@@ -1,13 +1,17 @@
 extends Node
 @export var NextLevel: PackedScene
-@export var level_data : Resource
+@export var level_data_copy : Resource
 @export var level_name: String
 @export var level_num : float
 @onready var player = $Player
 @onready var pause_menu = $PauseMenu
 var collected_coins := 0
 
+
 func _ready():
+	print("1. level data == " + str(level_data_copy))
+	$LevelPopup.prepare_level_popup()
+	
 	if level_num <= 2.0:
 		player.boy_sprite.visible = false
 		player.female_sprite.visible = false
@@ -28,7 +32,8 @@ func _ready():
 		player.boy_sprite.visible = false
 		player.male_sprite.visible = false
 		player.female_sprite.visible = true
-	
+
+
 func _process(delta):
 	if level_name == "level1":
 		pass

@@ -1,6 +1,6 @@
 extends Button
 
-@export var level_data : Resource
+@export var level_data_copy : Resource
 @onready var boxstyle = load("res://scenes/lvl_button_boxstyle.tres")
 var original_size := scale
 var grow_size := Vector2(1.1, 1.1)
@@ -17,10 +17,10 @@ var locked_level_font_color = Color8(199, 199, 199)
 
 func _ready():
 	var new_boxstyle = boxstyle.duplicate()
-	var level_number_str = "level_" + str(level_data.level_number)
+	var level_number_str = "level_" + str(level_data_copy.level_number)
 	
-	if level_data.level_number == 0:
-		level_number_str = "quiz_level_" + str(level_data.quiz_level_number)
+	if level_data_copy.level_number == 0:
+		level_number_str = "quiz_level_" + str(level_data_copy.quiz_level_number)
 	
 	match (USERDATA.player_game_data[level_number_str][0]):
 		"COMPLETED":
@@ -63,4 +63,4 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	owner.on_level_selected(level_data)
+	owner.on_level_selected(level_data_copy)
