@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bbp0vilabhiys"]
+[gd_scene load_steps=23 format=4 uid="uid://bbp0vilabhiys"]
 
 [ext_resource type="Texture2D" uid="uid://c7r272gk5p2t8" path="res://assets/background/backgroundCastles.png" id="1_1d6ax"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ptlsi"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="11_2dnkt"]
 [ext_resource type="PackedScene" uid="uid://cf3d7lb28vge0" path="res://scenes/player_stop_area.tscn" id="12_1q57f"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_j7rxn"]
+[ext_resource type="PackedScene" uid="uid://b05cvy02jjxxt" path="res://scenes/end_level_popup.tscn" id="14_s5afh"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="14_wbaor"]
 [ext_resource type="PackedScene" uid="uid://218s5mfe1qlt" path="res://scenes/level_popup.tscn" id="15_bpmr0"]
 
@@ -2730,6 +2731,8 @@ texture = ExtResource("1_1d6ax")
 stretch_mode = 1
 
 [node name="LevelPopup" parent="." instance=ExtResource("15_bpmr0")]
+
+[node name="EndLevelPopup" parent="." instance=ExtResource("14_s5afh")]
 
 [node name="Droppable Area5" parent="." instance=ExtResource("5_bqvbv")]
 position = Vector2(10608, -407)

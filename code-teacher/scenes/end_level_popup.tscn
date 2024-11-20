@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b05cvy02jjxxt"]
+[gd_scene load_steps=12 format=3 uid="uid://b05cvy02jjxxt"]
 
 [ext_resource type="Script" path="res://scripts/end_level_popup.gd" id="1_cxnrx"]
 
@@ -12,14 +12,60 @@ corner_detail = 20
 shadow_color = Color(0.530029, 0.912455, 0.287633, 0.52549)
 shadow_size = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcwa8"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
+bg_color = Color(0.328085, 0.295564, 0.0838579, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_color = Color(0.529412, 0.913725, 0.286275, 0.52549)
+shadow_size = 10
+
 [sub_resource type="LabelSettings" id="LabelSettings_04gb4"]
-font_size = 30
+font_size = 60
 font_color = Color(0.799642, 0.873431, 0.44295, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xfma"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.858824)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwr87"]
+line_spacing = 0.0
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbrbh"]
+bg_color = Color(0.672623, 0.598891, 0.311696, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jtxr"]
+line_spacing = -4.71
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_20hih"]
+line_spacing = -4.71
+font_size = 18
+
 [sub_resource type="LabelSettings" id="LabelSettings_ggq35"]
-font_size = 22
+font_size = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4amy6"]
 bg_color = Color(0.501961, 0.847059, 0.32549, 1)
@@ -45,7 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.211)
 
-[node name="LevelInfo" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -60,60 +106,172 @@ grow_vertical = 2
 pivot_offset = Vector2(320.5, 187.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3ujrv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelInfo"]
+[node name="LevelTitle" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -249.5
-offset_right = 250.5
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = 33.0
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9984, 1.01879)
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="LevelTitle" type="Label" parent="LevelInfo/VBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-text = "Level 1 : Advanced Conditionals"
+theme_override_styles/normal = SubResource("StyleBoxFlat_fcwa8")
+text = "Quiz Level 1"
 label_settings = SubResource("LabelSettings_04gb4")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 
-[node name="Spacer" type="Control" parent="LevelInfo/VBoxContainer"]
-layout_mode = 2
+[node name="ScoreStatsContainer" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+offset_left = 30.0
+offset_top = 70.0
+offset_right = 130.0
+offset_bottom = 190.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8xfma")
 
-[node name="Objective" type="Label" parent="LevelInfo/VBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-text = "Learning Objective : Sequencing commands in Python."
+[node name="Score" type="Label" parent="Panel/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "100"
+label_settings = SubResource("LabelSettings_rwr87")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/ScoreStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lbrbh")
+text = "Score"
+label_settings = SubResource("LabelSettings_1jtxr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MistakesStatsContainer" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -130.0
+offset_top = 70.0
+offset_right = -30.0
+offset_bottom = 190.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8xfma")
+
+[node name="Mistakes" type="Label" parent="Panel/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "4
+"
+label_settings = SubResource("LabelSettings_rwr87")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MistakesStatsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lbrbh")
+text = "Mistakes
+"
+label_settings = SubResource("LabelSettings_20hih")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Feedback" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -49.5
+offset_right = 150.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Learning Objective : Sequencing commands in Python.sdf sdfsdaf sdaf dsf ds fds fsad fdssdf sdfsdf sdf ds f"
 label_settings = SubResource("LabelSettings_ggq35")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
 
-[node name="SkillsPracticed" type="Label" parent="LevelInfo/VBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-text = "Skills Practiced : Using loops, decision-making"
-label_settings = SubResource("LabelSettings_ggq35")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Spacer2" type="Control" parent="LevelInfo/VBoxContainer"]
-layout_mode = 2
-
-[node name="Close" type="Button" parent="LevelInfo/VBoxContainer"]
+[node name="Retry" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(120, 50)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -73.0
+offset_right = 60.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_4amy6")
-text = "Close()"
+text = "Retry()"
 
-[connection signal="pressed" from="LevelInfo/VBoxContainer/Close" to="." method="_on_close_pressed"]
+[node name="NextLevel" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -73.0
+offset_right = 60.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4amy6")
+text = "Next_Level()"
+
+[connection signal="pressed" from="Panel/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/NextLevel" to="." method="_on_next_level_pressed"]

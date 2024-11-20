@@ -5,7 +5,8 @@ extends Node
 @export var level_num : float
 @onready var player = $Player
 @onready var pause_menu = $PauseMenu
-var current_points = 0
+@onready var end_level_popup = $EndLevelPopup
+var current_score = 0
 var current_mistakes = 0
 #var collected_coins := 0
 
@@ -102,8 +103,9 @@ func _process(delta):
 
 
 func _on_exit_body_entered(body):
-	get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_packed(NextLevel)
+	await get_tree().create_timer(0.5).timeout
+	end_level_popup.show()
+	end_level_popup.prepare_level_popup()
 
 
 #func _on_coin_body_entered(body):
