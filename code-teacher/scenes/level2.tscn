@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="5_eaamd"]
 [ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="9_2sk38"]
 [ext_resource type="Texture2D" uid="uid://c7r272gk5p2t8" path="res://assets/background/backgroundCastles.png" id="10_jhyyh"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="10_uqxa6"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="10_uqxa6"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_iee7o"]
 [ext_resource type="PackedScene" uid="uid://cf3d7lb28vge0" path="res://scenes/player_stop_area.tscn" id="13_2qyop"]
 [ext_resource type="Script" path="res://scripts/droppable_area.gd" id="13_m1e5b"]

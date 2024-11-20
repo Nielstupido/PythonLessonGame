@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dko6o5c2be2p3" path="res://assets/kenney_background-elements-redux/Backgrounds/backgroundCastles.png" id="1_d7obp"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_wd68p"]
 [ext_resource type="PackedScene" uid="uid://xg7majr2y35j" path="res://scenes/level_7.tscn" id="2_mbojl"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="3_6ijwo"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="3_6ijwo"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="5_dk7hp"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="6_5v5ao"]
 [ext_resource type="Texture2D" uid="uid://06onu4vdawom" path="res://assets/tilemap/sheet2.png" id="6_bd76y"]

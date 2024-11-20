@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cd2fecafumyhj" path="res://scenes/droppable_area.tscn" id="12_icwqc"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="13_8jpu2"]
 [ext_resource type="Texture2D" uid="uid://cqi773bkesxao" path="res://assets/kenney_platformer-art-mushrooms/Backgrounds/bg_desert.png" id="14_4h61y"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="15_twlnw"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="15_twlnw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydkax"]
 texture = ExtResource("4_kn7md")

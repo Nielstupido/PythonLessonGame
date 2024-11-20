@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://2bp87shqnigy"]
+[gd_scene load_steps=39 format=3 uid="uid://2bp87shqnigy"]
 
 [ext_resource type="Script" path="res://scenes/level_map_manager.gd" id="1_6uwso"]
 [ext_resource type="PackedScene" uid="uid://duhm48nuq1ni3" path="res://scenes/lvl_button.tscn" id="1_7bab2"]
@@ -200,7 +200,7 @@ void fragment() {
 [sub_resource type="Gradient" id="Gradient_w7cjt"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.6917, 1)
-colors = PackedColorArray(0.817958, 0.575937, 0.338307, 1, 1, 0.282353, 1, 1)
+colors = PackedColorArray(0.804374, 0.835568, 0.0369259, 1, 1, 0.282353, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fkxqk"]
 gradient = SubResource("Gradient_w7cjt")
@@ -220,19 +220,23 @@ shader_parameter/gradient = SubResource("GradientTexture1D_fkxqk")
 [sub_resource type="LabelSettings" id="LabelSettings_2jtue"]
 line_spacing = 0.0
 font = ExtResource("1_k6vei")
-font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_54in2"]
 line_spacing = -4.71
 font = ExtResource("1_k6vei")
-font_size = 18
+font_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_waw1k"]
 line_spacing = 0.0
 font = ExtResource("1_k6vei")
-font_size = 40
+font_size = 35
 
-[node name="LevelSelectScreen" type="Control" node_paths=PackedStringArray("level_buttons")]
+[sub_resource type="LabelSettings" id="LabelSettings_42tr1"]
+line_spacing = -4.71
+font = ExtResource("1_k6vei")
+font_size = 20
+
+[node name="LevelSelectScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,7 +244,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6uwso")
-level_buttons = [NodePath("LvlButton1"), NodePath("LvlButton2"), NodePath("LvlButton3"), NodePath("LvlButton4"), NodePath("LvlButton5"), NodePath("LvlButtonQuiz1"), NodePath("LvlButton6"), NodePath("LvlButton7"), NodePath("LvlButton8"), NodePath("LvlButton9"), NodePath("LvlButton10"), NodePath("LvlButtonQuiz2")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -356,7 +359,7 @@ offset_right = 1034.0
 offset_bottom = 475.0
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
-text = "Quiz Level 1"
+text = "Quiz 1"
 level_data = ExtResource("10_8dvvn")
 
 [node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
@@ -428,7 +431,7 @@ offset_right = 1827.0
 offset_bottom = 284.0
 theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
-text = "Quiz Level 2
+text = "Quiz 2
 "
 level_data = ExtResource("16_hcrs4")
 
@@ -629,23 +632,26 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 20.0
 offset_top = -315.0
-offset_right = 190.0
+offset_right = 150.0
 offset_bottom = 315.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xybiv")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="GameProgress"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -65.0
+offset_right = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="LevelStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
-custom_minimum_size = Vector2(130, 160)
+custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -658,10 +664,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.5
-offset_top = 10.0
-offset_right = 42.5
-offset_bottom = 95.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = 35.0
+offset_bottom = 75.0
 grow_horizontal = 2
 color = Color(0.660328, 0.673245, 0.960767, 1)
 
@@ -685,15 +691,11 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="GameProgress/HBoxContainer/LevelStatsContainer"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = -65.0
-offset_right = 59.0
-offset_bottom = 1.0
+offset_top = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Finished Levels"
@@ -701,50 +703,8 @@ label_settings = SubResource("LabelSettings_54in2")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ScoreStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
-custom_minimum_size = Vector2(130, 160)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
-
-[node name="Score" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -51.5
-offset_right = 41.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "100"
-label_settings = SubResource("LabelSettings_waw1k")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="GameProgress/HBoxContainer/ScoreStatsContainer"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -58.5
-offset_top = -66.0
-offset_right = 58.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Average Score"
-label_settings = SubResource("LabelSettings_54in2")
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="MistakesStatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
-custom_minimum_size = Vector2(130, 160)
+custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -752,17 +712,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
 
 [node name="Mistakes" type="Label" parent="GameProgress/HBoxContainer/MistakesStatsContainer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -51.5
-offset_right = 41.0
-offset_bottom = -8.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "100"
 label_settings = SubResource("LabelSettings_waw1k")
 horizontal_alignment = 1
@@ -770,14 +723,11 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="GameProgress/HBoxContainer/MistakesStatsContainer"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -58.5
-offset_top = -66.0
-offset_right = 58.5
+offset_top = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Average Mistakes"
@@ -785,8 +735,95 @@ label_settings = SubResource("LabelSettings_54in2")
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Quiz1StatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
+
+[node name="Checkbox" type="Panel" parent="GameProgress/HBoxContainer/Quiz1StatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 15.0
+offset_right = 25.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_30mif")
+
+[node name="Checkmark" type="TextureRect" parent="GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 4.0
+offset_top = -10.0
+offset_right = 64.0
+offset_bottom = 50.0
+texture = ExtResource("16_54i8j")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/Quiz1StatsContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quiz 1"
+label_settings = SubResource("LabelSettings_42tr1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Quiz2StatsContainer" type="Panel" parent="GameProgress/HBoxContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14ui8")
+
+[node name="Checkbox" type="Panel" parent="GameProgress/HBoxContainer/Quiz2StatsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 15.0
+offset_right = 25.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_30mif")
+
+[node name="Checkmark" type="TextureRect" parent="GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 4.0
+offset_top = -10.0
+offset_right = 64.0
+offset_bottom = 50.0
+texture = ExtResource("16_54i8j")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GameProgress/HBoxContainer/Quiz2StatsContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quiz 2"
+label_settings = SubResource("LabelSettings_42tr1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="ReturnButton" type="Button" parent="."]
 custom_minimum_size = Vector2(220, 60)
+layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 260.0

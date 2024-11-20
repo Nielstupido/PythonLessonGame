@@ -1,8 +1,8 @@
 extends Control
 
 
-@export var level_buttons : Array[Node] = []
 @onready var level_information_panel = $LevelInfo
+@onready var level_checkmamrk = $LevelInfo/Checkbox/Checkmark
 @onready var level_title = $LevelInfo/VBoxContainer/LevelTitle
 @onready var level_objectives_text = $LevelInfo/VBoxContainer/Objective
 @onready var level_skills_text = $"LevelInfo/VBoxContainer/SkillsPracticed"
@@ -10,38 +10,17 @@ extends Control
 @onready var level_mistakes_text = $LevelInfo/MistakesStatsContainer/Mistakes
 @onready var play_button = $LevelInfo/VBoxContainer/PlayButton
 @onready var replay_button = $LevelInfo/VBoxContainer/ReplayButton
-@onready var completed_levels = $GameProgress/HBoxContainer/ScoreStatsContainer/LevelsFinished
-@onready var avg_score = $GameProgress/HBoxContainer/ScoreStatsContainer/Score
+@onready var completed_levels = $GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle/LevelsFinished
 @onready var avg_mistakes = $GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
+@onready var quiz1_checkmark = $GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox/Checkmark
+@onready var quiz2_checkmark = $GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox/Checkmark
 var current_active_level_data = null
 
 
 func _ready():
+	update_game_progress()
 	level_information_panel.hide()
 	var level_number_str
-	#update_game_progress
-	#for btn in level_buttons:
-		#level_number_str = "level_" + str(btn.level_data.level_number)
-		#
-		#if btn.level_data.level_number == 0:
-			#level_number_str = "quiz_level_" + str(btn.level_data.quiz_level_number)
-		#
-		#match (USERDATA.player_game_data[level_number_str][0]):
-			#"COMPLETED":
-				#btn.get_theme_stylebox("normal").bg_color = btn.complete_level_color
-				#btn.get_theme_stylebox("hover").bg_color = btn.complete_level_color
-				#btn.add_theme_color_override("font_color", btn.complete_level_font_color)
-				#btn.add_theme_color_override("font_focus_color", btn.complete_level_font_color)
-			#"UNCOMPLETE":
-				#btn.get_theme_stylebox("normal").bg_color = btn.uncomplete_level_color
-				#btn.get_theme_stylebox("hover").bg_color = btn.uncomplete_level_color
-				#btn.add_theme_color_override("font_color", btn.uncomplete_level_font_color)
-				#btn.add_theme_color_override("font_focus_color", btn.uncomplete_level_font_color)
-			#"LOCKED":
-				#btn.get_theme_stylebox("normal").bg_color = btn.locked_level_color
-				#btn.get_theme_stylebox("hover").bg_color = btn.locked_level_color
-				#btn.add_theme_color_override("font_color", btn.locked_level_font_color)
-				#btn.add_theme_color_override("font_focus_color", btn.locked_level_font_color)
 
 
 func on_level_selected(level_data):
@@ -60,15 +39,28 @@ func on_level_selected(level_data):
 		level_number_str = "quiz_level_" + str(level_data.quiz_level_number)
 	
 	if USERDATA.player_game_data[level_number_str][0] == "COMPLETED":
+		level_checkmamrk.show()
 		replay_button.show()
+		play_button.hide()
 	else:
+		level_checkmamrk.hide()
+		replay_button.hide()
 		play_button.show()
 
 
 func update_game_progress():
 	completed_levels.text = "1/1"
-	avg_score.text = "100"
 	avg_mistakes.text = "10"
+	
+	if USERDATA.player_game_data["quiz_level_1"][0] == "COMPLETED":
+		quiz1_checkmark.show()
+	else:
+		quiz1_checkmark.hide()
+	
+	if USERDATA.player_game_data["quiz_level_2"][0] == "COMPLETED":
+		quiz2_checkmark.show()
+	else:
+		quiz2_checkmark.hide()
 
 
 func _on_play_button_pressed():

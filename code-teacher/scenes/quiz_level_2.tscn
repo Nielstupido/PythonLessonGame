@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_in11v"]
 [ext_resource type="Texture2D" uid="uid://cybeo831sdacs" path="res://assets/kenney_platformer-art-buildings/Tiles/houseGray.png" id="2_hqawd"]
 [ext_resource type="PackedScene" uid="uid://bgan2o763o1jf" path="res://scenes/level_11.tscn" id="2_kgec4"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="3_y3kyj"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="3_y3kyj"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="4_jtdl7"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="4_ppwx6"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="5_838wb"]

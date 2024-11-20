@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="3_7qqxo"]
 [ext_resource type="Texture2D" uid="uid://c3e1x1pp7fq05" path="res://assets/Level 11-15 Assets/Tileset (1)/SpriteSheet/SpriteSheet.png" id="3_egfg1"]
 [ext_resource type="Texture2D" uid="uid://ctqmbde4qy0yj" path="res://assets/kenney_platformer-art-candy/Tiles/hillCanePink.png" id="4_4aydi"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="4_wdjlh"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="4_wdjlh"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="5_tkf6y"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="6_qj203"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="7_bdcl3"]

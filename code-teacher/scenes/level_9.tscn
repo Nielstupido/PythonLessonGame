@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ce733elo4cg8o" path="res://assets/tilemap/sheet3.png" id="3_3fqur"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="3_vun7b"]
 [ext_resource type="Texture2D" uid="uid://b0cnjv3x77vce" path="res://assets/kenney_platformer-art-mushrooms/Backgrounds/bg_castle.png" id="6_jj0bh"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="7_s8c21"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="7_s8c21"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="8_tvc64"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="9_axosh"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="10_rdl1m"]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="6_j1kwd"]
 [ext_resource type="PackedScene" uid="uid://cp5amrfghw7x2" path="res://scenes/door.tscn" id="7_3jeir"]
 [ext_resource type="Texture2D" uid="uid://cytykqfbg5v54" path="res://assets/ui_pack/PNG/Double/panel_grey.png" id="9_t5tvo"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="11_2dnkt"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="11_2dnkt"]
 [ext_resource type="PackedScene" uid="uid://cf3d7lb28vge0" path="res://scenes/player_stop_area.tscn" id="12_1q57f"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_j7rxn"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="14_wbaor"]
@@ -2706,7 +2706,7 @@ text = "amount_of_platforms ="
 label_settings = SubResource("LabelSettings_ec2ut")
 metadata/_edit_use_anchors_ = true
 
-[node name="HUD" parent="." instance=ExtResource("11_2dnkt")]
+[node name="PauseMenu" parent="." instance=ExtResource("11_2dnkt")]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -3

@@ -1,9 +1,10 @@
 extends Node
 @export var NextLevel: PackedScene
+@export var level_data : Resource
 @export var level_name: String
 @export var level_num : float
 @onready var player = $Player
-@onready var hud = $HUD
+@onready var pause_menu = $PauseMenu
 var collected_coins := 0
 
 func _ready():

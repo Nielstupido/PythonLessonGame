@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cp5amrfghw7x2" path="res://scenes/door.tscn" id="7_6x27c"]
 [ext_resource type="PackedScene" uid="uid://cd2fecafumyhj" path="res://scenes/droppable_area.tscn" id="8_0hmjm"]
 [ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="8_1vtps"]
-[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/hud.tscn" id="11_dukx8"]
+[ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="11_dukx8"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_ydb21"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="13_rjeo0"]
 

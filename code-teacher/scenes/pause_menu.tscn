@@ -205,7 +205,7 @@ _data = {
 "blur": SubResource("Animation_r5v5p")
 }
 
-[node name="HUD" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_lal3t")
 
