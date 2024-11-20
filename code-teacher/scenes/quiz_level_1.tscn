@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=4 uid="uid://wyurqdgwlggu"]
+[gd_scene load_steps=33 format=4 uid="uid://wyurqdgwlggu"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_81h03"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="2_5ilr5"]
 [ext_resource type="PackedScene" uid="uid://b0a6sffprjuth" path="res://scenes/level_6.tscn" id="2_fh7is"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="3_8u3lt"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="3_025r1"]
+[ext_resource type="Resource" uid="uid://bhp4v4kt525fn" path="res://levels/quiz_1.tres" id="3_bcrq0"]
 [ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="4_pt1oi"]
 [ext_resource type="Texture2D" uid="uid://btdu4ft5ownnm" path="res://assets/ui_pack/PNG/Double/banner_classic_curtain.png" id="6_0ireh"]
 [ext_resource type="Texture2D" uid="uid://bxnkjekuggeky" path="res://assets/background/backgroundEmpty.png" id="6_s77ym"]
@@ -4708,6 +4709,7 @@ size = Vector2(22, 464)
 [node name="quiz_level1" type="Node2D"]
 script = ExtResource("1_81h03")
 NextLevel = ExtResource("2_fh7is")
+level_data_copy = ExtResource("3_bcrq0")
 level_name = "quiz_level1"
 level_num = 5.5
 

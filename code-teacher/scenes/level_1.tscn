@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="2_dkm1d"]
 [ext_resource type="PackedScene" uid="uid://dt2jab7am6q1a" path="res://scenes/level2.tscn" id="2_pctni"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="3_i18uv"]
-[ext_resource type="Resource" uid="uid://cdkslmlynvrgk" path="res://levels/lvl1.tres" id="3_jxtgj"]
+[ext_resource type="Resource" uid="uid://01dul27pjlqe" path="res://levels/lvl1.tres" id="3_jxtgj"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="4_8fop8"]
 [ext_resource type="PackedScene" uid="uid://cd2fecafumyhj" path="res://scenes/droppable_area.tscn" id="5_bqvbv"]
 [ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="6_j1kwd"]

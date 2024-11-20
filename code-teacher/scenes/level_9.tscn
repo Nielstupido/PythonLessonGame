@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=4 uid="uid://u8cop2tb1y2g"]
+[gd_scene load_steps=26 format=4 uid="uid://u8cop2tb1y2g"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_4s1hn"]
 [ext_resource type="PackedScene" uid="uid://djh4lx07epoua" path="res://scenes/button.tscn" id="1_ujao6"]
 [ext_resource type="PackedScene" uid="uid://c2hdektro4tju" path="res://scenes/level_10.tscn" id="2_7ws03"]
 [ext_resource type="Texture2D" uid="uid://c0kxhlnn8c7aa" path="res://assets/ui_pack/Vector/panel_grey_bolts_detail_b.svg" id="2_s01ot"]
+[ext_resource type="Resource" uid="uid://duoby4d4mwms1" path="res://levels/lvl9.tres" id="3_1ymu8"]
 [ext_resource type="Texture2D" uid="uid://ce733elo4cg8o" path="res://assets/tilemap/sheet3.png" id="3_3fqur"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="3_vun7b"]
 [ext_resource type="Texture2D" uid="uid://b0cnjv3x77vce" path="res://assets/kenney_platformer-art-mushrooms/Backgrounds/bg_castle.png" id="6_jj0bh"]
@@ -1572,6 +1573,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="level9" type="Node2D"]
 script = ExtResource("1_4s1hn")
 NextLevel = ExtResource("2_7ws03")
+level_data_copy = ExtResource("3_1ymu8")
 level_name = "level9"
 level_num = 9.0
 

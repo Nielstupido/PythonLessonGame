@@ -6,6 +6,6 @@
 script = ExtResource("1_odaxp")
 level_number = 8
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 8: Functions with Parameters"
+level_objectives = "Add parameters to functions for flexibility (e.g., \"Move forward X steps\")"
 level_skills = ""

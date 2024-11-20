@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=4 uid="uid://bj0fnujhmrsl1"]
+[gd_scene load_steps=39 format=4 uid="uid://bj0fnujhmrsl1"]
 
 [ext_resource type="Texture2D" uid="uid://bv5mnchjli06k" path="res://assets/kenney_background-elements-redux/Backgrounds/Elements/mountains.png" id="1_lu16g"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_o07jo"]
 [ext_resource type="PackedScene" uid="uid://u8cop2tb1y2g" path="res://scenes/level_9.tscn" id="2_vewrj"]
 [ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="2_wacwd"]
+[ext_resource type="Resource" uid="uid://cr20coumtvolj" path="res://levels/lvl8.tres" id="3_4jajr"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="4_v82fv"]
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="5_eufmg"]
 [ext_resource type="Texture2D" uid="uid://k5q6txxk2r1j" path="res://assets/tilemap/sheet.png" id="6_4i27f"]
@@ -1434,6 +1435,7 @@ size = Vector2(41.1592, 222.381)
 [node name="level_8" type="Node2D"]
 script = ExtResource("1_o07jo")
 NextLevel = ExtResource("2_vewrj")
+level_data_copy = ExtResource("3_4jajr")
 level_name = "level8"
 level_num = 8.0
 

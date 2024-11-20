@@ -6,6 +6,6 @@
 script = ExtResource("1_0oay3")
 level_number = 10
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 10: Arrays (Lists)"
+level_objectives = "Learn to store multiple values in arrays (lists)"
 level_skills = ""

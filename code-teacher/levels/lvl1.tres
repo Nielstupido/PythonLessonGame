@@ -6,6 +6,6 @@
 script = ExtResource("1_bweuw")
 level_number = 1
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 1: Sequencing"
+level_objectives = "Learn to arrange commands in a specific order"
 level_skills = ""

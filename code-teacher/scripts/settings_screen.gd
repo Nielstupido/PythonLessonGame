@@ -9,7 +9,7 @@ extends Control
 @onready var music_off_box = $ScrollContainer/VBoxContainer/SoundControls/MusicControl/VBoxContainer/HBoxContainer/MusicOffButton
 @onready var game_hint_on_box = $ScrollContainer/VBoxContainer/GameHints/VBoxContainer/HBoxContainer/GameHintOnButton
 @onready var game_hint_off_box = $ScrollContainer/VBoxContainer/GameHints/VBoxContainer/HBoxContainer/GameHintOffButton
-@onready var completed_levels = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/ScoreStatsContainer/LevelsFinished
+@onready var completed_levels = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle/LevelsFinished
 @onready var avg_score = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/ScoreStatsContainer/Score
 @onready var avg_mistakes = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
 

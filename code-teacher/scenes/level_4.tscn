@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://dfevw5dudq78m"]
+[gd_scene load_steps=17 format=4 uid="uid://dfevw5dudq78m"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_irsyo"]
-[ext_resource type="PackedScene" uid="uid://dxu4sh1t68wv" path="res://scenes/level3.tscn" id="2_3ttut"]
+[ext_resource type="PackedScene" uid="uid://cspmeu0u8nr7l" path="res://scenes/level_5.tscn" id="2_norx6"]
 [ext_resource type="PackedScene" uid="uid://d2s03p71qbct4" path="res://scenes/player.tscn" id="3_g6bth"]
+[ext_resource type="Resource" uid="uid://c04kqypyip7p2" path="res://levels/lvl4.tres" id="3_hd7yj"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="4_5vosx"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="4_kn7md"]
 [ext_resource type="Texture2D" uid="uid://tm8ehtbougvh" path="res://assets/ui_pack/PNG/Default/pattern_diagonal_grey_large.png" id="5_a22sv"]
@@ -4676,7 +4677,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_irsyo")
-NextLevel = ExtResource("2_3ttut")
+NextLevel = ExtResource("2_norx6")
+level_data_copy = ExtResource("3_hd7yj")
 level_name = "level4"
 level_num = 4.0
 

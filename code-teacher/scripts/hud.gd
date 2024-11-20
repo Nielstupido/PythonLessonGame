@@ -33,4 +33,7 @@ func _on_resume_button_pressed():
 
 
 func _on_exit_button_pressed():
-	get_tree().quit()
+	await resume()
+	var instance = owner.level_map.instantiate()
+	get_tree().root.add_child(instance)
+	get_tree().root.remove_child(get_tree().current_scene)

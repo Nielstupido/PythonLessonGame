@@ -6,6 +6,6 @@
 script = ExtResource("1_hbqll")
 level_number = 5
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 5: Advanced Conditionals"
+level_objectives = "Use multiple branches with \"else if\" for complex decision trees"
 level_skills = ""

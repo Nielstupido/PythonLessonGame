@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://co3v5w0ctl8yf"]
 
-[ext_resource type="Script" path="res://Scripts/exit.gd" id="1_r4e3a"]
+[ext_resource type="Script" path="res://scripts/exit.gd" id="1_mshce"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="2_c8thd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x74ru"]
@@ -680,7 +680,7 @@ sources/0 = SubResource("TileSetAtlasSource_sl6xk")
 scale = Vector2(2, 2)
 collision_layer = 16
 collision_mask = 2
-script = ExtResource("1_r4e3a")
+script = ExtResource("1_mshce")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, -40)

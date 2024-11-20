@@ -1,6 +1,6 @@
 extends Node
 
-@onready var level_map = preload("res://scenes/level_select_screen.tscn")
+@onready var level_map = load("res://scenes/level_select_screen.tscn")
 @export var NextLevel: PackedScene
 @export var level_data_copy : Resource
 @export var level_name: String

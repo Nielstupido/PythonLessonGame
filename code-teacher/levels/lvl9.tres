@@ -6,6 +6,6 @@
 script = ExtResource("1_1idg0")
 level_number = 9
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 9: Introduction to Variables"
+level_objectives = "Learn to store and modify data using variables"
 level_skills = ""

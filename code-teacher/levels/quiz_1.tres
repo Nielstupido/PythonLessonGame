@@ -6,6 +6,6 @@
 script = ExtResource("1_lke7q")
 level_number = 0
 quiz_level_number = 1
-level_title = ""
-level_objectives = ""
+level_title = "Quiz 1: Review of Sequencing, Loops, and Conditionals"
+level_objectives = "Sequencing of commands, Using loops for repetitive tasks, Conditional logic for decision-making"
 level_skills = ""

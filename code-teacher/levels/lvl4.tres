@@ -6,6 +6,6 @@
 script = ExtResource("1_hvf46")
 level_number = 4
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 4: Nested Loops"
+level_objectives = "Introduction to loops inside loops"
 level_skills = ""

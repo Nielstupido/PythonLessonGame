@@ -6,6 +6,6 @@
 script = ExtResource("1_idjh8")
 level_number = 3
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 3: Conditional Logic"
+level_objectives = "Introduction to \"If-Else\" decision-making"
 level_skills = ""

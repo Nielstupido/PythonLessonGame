@@ -6,6 +6,6 @@
 script = ExtResource("1_w7wj0")
 level_number = 2
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 2: Loops"
+level_objectives = "Introduction to loops for repeating actions"
 level_skills = ""

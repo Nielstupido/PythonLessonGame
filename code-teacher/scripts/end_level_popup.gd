@@ -2,10 +2,10 @@ extends CanvasLayer
 
 const MISTAKES_LIMIT = 5
 @onready var panel = $Panel
-@onready var level_score = $LevelInfo/ScoreStatsContainer/Score
-@onready var level_mistakes = $LevelInfo/MistakesStatsContainer/Mistakes
-@onready var level_feedback = $LevelInfo/Feedback
-@onready var level_title = $LevelInfo/LevelTitle
+@onready var level_score = $Panel/ScoreStatsContainer/Score
+@onready var level_mistakes = $Panel/MistakesStatsContainer/Mistakes
+@onready var level_feedback = $Panel/Feedback
+@onready var level_title = $Panel/LevelTitle
 @onready var retry_button = $Panel/Retry
 @onready var next_level_button = $Panel/NextLevel
 @onready var level_map_button = $Panel/LevelMap

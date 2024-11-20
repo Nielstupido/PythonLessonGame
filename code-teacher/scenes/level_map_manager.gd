@@ -14,6 +14,7 @@ extends Control
 @onready var avg_mistakes = $GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
 @onready var quiz1_checkmark = $GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox/Checkmark
 @onready var quiz2_checkmark = $GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox/Checkmark
+var main_menu_obj = load("res://scenes/main_menu.tscn")
 var current_active_level_data = null
 var current_active_level_data_scene = null
 
@@ -21,7 +22,6 @@ var current_active_level_data_scene = null
 func _ready():
 	update_game_progress()
 	level_information_panel.hide()
-	var level_number_str
 
 
 func on_level_selected(level_data, level_scene):
@@ -71,3 +71,9 @@ func _on_play_button_pressed():
 
 func _on_replay_button_pressed():
 	get_tree().change_scene_to_packed(current_active_level_data_scene)
+
+
+func _on_return_button_pressed():
+	var instance = main_menu_obj.instantiate()
+	get_tree().root.add_child(instance)
+	get_tree().root.remove_child(get_tree().current_scene)

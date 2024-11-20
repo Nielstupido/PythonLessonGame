@@ -6,6 +6,6 @@
 script = ExtResource("1_qyeds")
 level_number = 7
 quiz_level_number = 0
-level_title = ""
-level_objectives = ""
+level_title = "Level 7: Basic Functions"
+level_objectives = "Create reusable blocks of commands with functions"
 level_skills = ""

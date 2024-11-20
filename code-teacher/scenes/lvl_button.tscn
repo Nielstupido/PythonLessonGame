@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/lvl_button.gd" id="1_okx7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmm8t"]
-bg_color = Color(0.319856, 0.452785, 0.159953, 1)
+bg_color = Color(0.74502, 0.95123, 0.528207, 1)
 border_width_bottom = 10
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -13,6 +13,7 @@ corner_radius_bottom_left = 8
 [node name="LvlButton" type="Button"]
 offset_right = 200.0
 offset_bottom = 90.0
+theme_override_colors/font_focus_color = Color(0.165656, 0.165656, 0.165656, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_bmm8t")
 text = "Level Name"
