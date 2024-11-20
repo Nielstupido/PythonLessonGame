@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://cr7ti4ouc52a8"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://c5f7g5go738l5"]
 
-[ext_resource type="PackedScene" uid="uid://dxu4sh1t68wv" path="res://scenes/level3.tscn" id="1_5yhtu"]
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_idjh8"]
 
 [resource]
 script = ExtResource("1_idjh8")
 level_number = 3
-level_scene = ExtResource("1_5yhtu")
-level_title = "Level 3: Conditional Logic"
-level_objectives = "Introduction to \"If-Else\" decision-making."
+quiz_level_number = 0
+level_title = ""
+level_objectives = ""
 level_skills = ""

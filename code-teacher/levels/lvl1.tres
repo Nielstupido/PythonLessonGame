@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dojmhnvoobj78"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://01dul27pjlqe"]
 
-[ext_resource type="PackedScene" uid="uid://bbp0vilabhiys" path="res://scenes/level_1.tscn" id="1_3k0ta"]
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_bweuw"]
 
 [resource]
 script = ExtResource("1_bweuw")
 level_number = 1
-level_scene = ExtResource("1_3k0ta")
-level_title = "Level 1: Sequencing"
-level_objectives = "Learn to arrange commands in a specific order."
+quiz_level_number = 0
+level_title = ""
+level_objectives = ""
 level_skills = ""

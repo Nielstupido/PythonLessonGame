@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://k37r178qtmnn"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://c2aiikxteko6c"]
 
-[ext_resource type="PackedScene" uid="uid://d3o17bqeecmq3" path="res://scenes/quiz_level_2.tscn" id="1_jlc7n"]
-[ext_resource type="Script" path="res://levels/level_data.gd" id="2_4ynmn"]
+[ext_resource type="Script" path="res://levels/level_data.gd" id="1_fi1u8"]
 
 [resource]
-script = ExtResource("2_4ynmn")
+script = ExtResource("1_fi1u8")
 level_number = 0
 quiz_level_number = 2
-level_scene = ExtResource("1_jlc7n")
-level_title = "Quiz 2 (After Level 10): Review of Functions, Variables, and Arrays"
-level_objectives = "Creating functions and using parameters, Storing and updating data with variables, Using arrays to store and manipulate data"
+level_title = ""
+level_objectives = ""
 level_skills = ""
