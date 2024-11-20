@@ -14,6 +14,8 @@ var current_mistakes = 0
 
 
 func _ready():
+	if level_num > USERDATA.player_game_data["current_level"]:
+		USERDATA.player_game_data["current_level"] = level_num
 	$LevelPopup.prepare_level_popup()
 	
 	if level_num <= 2.0:

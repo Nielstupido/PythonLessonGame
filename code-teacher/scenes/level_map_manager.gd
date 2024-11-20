@@ -51,8 +51,8 @@ func on_level_selected(level_data, level_scene):
 
 
 func update_game_progress():
-	completed_levels.text = "1/1"
-	avg_mistakes.text = "10"
+	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
+	avg_mistakes.text = str(USERDATA.get_avg_mistakes())
 	
 	if USERDATA.player_game_data["quiz_level_1"][0] == "COMPLETED":
 		quiz1_checkmark.show()

@@ -9,21 +9,46 @@ var players_dets = {
 
 var player_game_data = {
 	"usernamme" : "",
-	"current_level" : 0,
-	"total_points" : 0,
-	"level_1" : ["UNCOMPLETE", 0, 0], #"level_number" : [level_status, level_points, level_mistakes]
+	"current_level" : 1,
+	"level_1" : ["COMPLETED", 10, 2], #"level_number" : [level_status, level_points, level_mistakes]
 	"level_2" : ["UNCOMPLETE", 0, 0],
-	"level_3" : ["UNCOMPLETE", 0, 0],
-	"level_4" : ["UNCOMPLETE", 0, 0],
+	"level_3" : ["LOCKED", 0, 0],
+	"level_4" : ["LOCKED", 0, 0],
 	"level_5" : ["LOCKED", 0, 0],
 	"level_6" : ["LOCKED", 0, 0],
-	"level_7" : ["COMPLETED", 0, 0],
-	"level_8" : ["COMPLETED", 0, 0],
+	"level_7" : ["LOCKED", 0, 0],
+	"level_8" : ["LOCKED", 0, 0],
 	"level_9" : ["LOCKED", 0, 0],
 	"level_10" : ["LOCKED", 0, 0],
 	"quiz_level_1" : ["LOCKED", 0, 0],
 	"quiz_level_2" : ["LOCKED", 0, 0],
 }
+
+
+func get_avg_mistakes():
+	var avg = 0
+	
+	for i in range(1, 10):
+		avg += player_game_data["level_" + str(i)][2]
+	
+	for i in range(1, 2):
+		avg += player_game_data["quiz_level_" + str(i)][2]
+	
+	avg = avg / 12
+	
+	return avg
+
+
+func get_total_points():
+	var total = 0
+	
+	for i in range(1, 10):
+		total += player_game_data["level_" + str(i)][2]
+	
+	for i in range(1, 2):
+		total += player_game_data["quiz_level_" + str(i)][2]
+	
+	return total
 
 
 func clear_current_player_data():
@@ -32,8 +57,19 @@ func clear_current_player_data():
 
 
 func reset_player_game_data():
-	player_game_data["current_level"] = 0
-	player_game_data["total_points"] = 0
+	player_game_data["current_level"] = 1
+	player_game_data["level_1"] = ["UNCOMPLETE", 0, 0]
+	player_game_data["level_2"] = ["LOCKED", 0, 0]
+	player_game_data["level_3"] = ["LOCKED", 0, 0]
+	player_game_data["level_4"] = ["LOCKED", 0, 0]
+	player_game_data["level_5"] = ["LOCKED", 0, 0]
+	player_game_data["level_6"] = ["LOCKED", 0, 0]
+	player_game_data["level_7"] = ["LOCKED", 0, 0]
+	player_game_data["level_8"] = ["LOCKED", 0, 0]
+	player_game_data["level_9"] = ["LOCKED", 0, 0]
+	player_game_data["level_10"] = ["LOCKED", 0, 0]
+	player_game_data["quiz_level_1"] = ["LOCKED", 0, 0]
+	player_game_data["quiz_level_2"] = ["LOCKED", 0, 0]
 
 
 func save_player_data():

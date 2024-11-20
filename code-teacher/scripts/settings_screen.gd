@@ -82,6 +82,6 @@ func _on_cancel_reset_button_pressed():
 
 
 func update_game_progress():
-	completed_levels.text = "1/1"
-	avg_score.text = "100"
-	avg_mistakes.text = "10"
+	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
+	avg_score.text = str(USERDATA.get_total_points())
+	avg_mistakes.text = str(USERDATA.get_avg_mistakes())
