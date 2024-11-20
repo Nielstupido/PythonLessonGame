@@ -273,5 +273,26 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_4amy6")
 text = "Next_Level()"
 
+[node name="LevelMap" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -73.0
+offset_right = 60.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4amy6")
+text = "Level_Map()"
+
 [connection signal="pressed" from="Panel/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Panel/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel/LevelMap" to="." method="_on_level_map_pressed"]

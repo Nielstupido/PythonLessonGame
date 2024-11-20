@@ -9,7 +9,6 @@ var players_dets = {
 
 var player_game_data = {
 	"usernamme" : "",
-	"password" : "",
 	"current_level" : 0,
 	"total_points" : 0,
 	"level_1" : ["UNCOMPLETE", 0, 0], #"level_number" : [level_status, level_points, level_mistakes]

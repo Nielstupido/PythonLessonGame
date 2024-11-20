@@ -18,7 +18,6 @@ func prepare_level_popup():
 
 
 func _show_level_info():
-	print("level data == " + str(owner.level_data_copy))
 	level_title.text = owner.level_data_copy.level_title
 	level_objectives_text.text = "Learning Objective : " + owner.level_data_copy.level_objectives
 	level_skills_text.text = "Skills Practiced : " + owner.level_data_copy.level_skills
