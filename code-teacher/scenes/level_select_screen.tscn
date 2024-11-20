@@ -1,22 +1,34 @@
-[gd_scene load_steps=39 format=3 uid="uid://2bp87shqnigy"]
+[gd_scene load_steps=51 format=3 uid="uid://2bp87shqnigy"]
 
 [ext_resource type="Script" path="res://scenes/level_map_manager.gd" id="1_6uwso"]
 [ext_resource type="PackedScene" uid="uid://duhm48nuq1ni3" path="res://scenes/lvl_button.tscn" id="1_7bab2"]
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="1_k6vei"]
 [ext_resource type="Texture2D" uid="uid://dh3m8hwp7e5e3" path="res://assets/map bg.jpg" id="1_lrbyu"]
 [ext_resource type="Resource" uid="uid://urn8quh0b7og" path="res://levels/lvl2.tres" id="6_382rl"]
-[ext_resource type="Resource" uid="uid://dojmhnvoobj78" path="res://levels/lvl1.tres" id="6_m0bv4"]
+[ext_resource type="PackedScene" uid="uid://bbp0vilabhiys" path="res://scenes/level_1.tscn" id="6_kjars"]
+[ext_resource type="Resource" uid="uid://cdkslmlynvrgk" path="res://levels/lvl1.tres" id="6_m0bv4"]
 [ext_resource type="Resource" uid="uid://cr7ti4ouc52a8" path="res://levels/lvl3.tres" id="7_ctgmg"]
+[ext_resource type="PackedScene" uid="uid://dt2jab7am6q1a" path="res://scenes/level2.tscn" id="8_paojt"]
 [ext_resource type="Resource" uid="uid://c5vjhhpp6p8ib" path="res://levels/lvl4.tres" id="8_w5g2m"]
 [ext_resource type="Resource" uid="uid://dec2120cyxrge" path="res://levels/lvl5.tres" id="9_cv6tf"]
 [ext_resource type="Resource" uid="uid://bc4gk3755p42h" path="res://levels/quiz_1.tres" id="10_8dvvn"]
+[ext_resource type="PackedScene" uid="uid://dxu4sh1t68wv" path="res://scenes/level3.tscn" id="10_hbqc2"]
 [ext_resource type="Resource" uid="uid://lud53rebr0e1" path="res://levels/lvl6.tres" id="11_c1xo7"]
+[ext_resource type="PackedScene" uid="uid://dfevw5dudq78m" path="res://scenes/level_4.tscn" id="12_kw3ia"]
 [ext_resource type="Resource" uid="uid://dxmqbftqvyxo3" path="res://levels/lvl7.tres" id="12_rjv15"]
 [ext_resource type="Resource" uid="uid://d2titklxvvyr2" path="res://levels/lvl8.tres" id="13_iarii"]
 [ext_resource type="Resource" uid="uid://b053iy88n4sbu" path="res://levels/lvl9.tres" id="14_7hl0h"]
+[ext_resource type="PackedScene" uid="uid://cspmeu0u8nr7l" path="res://scenes/level_5.tscn" id="14_f00lx"]
 [ext_resource type="Resource" uid="uid://brwpdxssrh7g3" path="res://levels/lvl10.tres" id="15_f4usa"]
 [ext_resource type="Texture2D" uid="uid://dmyqryuowmn5y" path="res://assets/ui_pack/check.png" id="16_54i8j"]
 [ext_resource type="Resource" uid="uid://k37r178qtmnn" path="res://levels/quiz_2.tres" id="16_hcrs4"]
+[ext_resource type="PackedScene" uid="uid://wyurqdgwlggu" path="res://scenes/quiz_level_1.tscn" id="16_qd4i8"]
+[ext_resource type="PackedScene" uid="uid://b0a6sffprjuth" path="res://scenes/level_6.tscn" id="18_mf60k"]
+[ext_resource type="PackedScene" uid="uid://xg7majr2y35j" path="res://scenes/level_7.tscn" id="20_mna8s"]
+[ext_resource type="PackedScene" uid="uid://bj0fnujhmrsl1" path="res://scenes/level_8.tscn" id="22_guyrf"]
+[ext_resource type="PackedScene" uid="uid://u8cop2tb1y2g" path="res://scenes/level_9.tscn" id="24_cjs7r"]
+[ext_resource type="PackedScene" uid="uid://c2hdektro4tju" path="res://scenes/level_10.tscn" id="26_j73ar"]
+[ext_resource type="PackedScene" uid="uid://d3o17bqeecmq3" path="res://scenes/quiz_level_2.tscn" id="28_04fk2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2g7d"]
 bg_color = Color(0.319856, 0.452785, 0.159953, 1)
@@ -291,6 +303,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 1"
 level_data_copy = ExtResource("6_m0bv4")
+level_scene = ExtResource("6_kjars")
 
 [node name="LvlButton2" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -306,6 +319,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 2"
 level_data_copy = ExtResource("6_382rl")
+level_scene = ExtResource("8_paojt")
 
 [node name="LvlButton3" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -321,6 +335,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 3"
 level_data_copy = ExtResource("7_ctgmg")
+level_scene = ExtResource("10_hbqc2")
 
 [node name="LvlButton4" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 1
@@ -337,6 +352,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 4
 "
 level_data_copy = ExtResource("8_w5g2m")
+level_scene = ExtResource("12_kw3ia")
 
 [node name="LvlButton5" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -349,6 +365,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 5
 "
 level_data_copy = ExtResource("9_cv6tf")
+level_scene = ExtResource("14_f00lx")
 
 [node name="LvlButtonQuiz1" parent="." instance=ExtResource("1_7bab2")]
 custom_minimum_size = Vector2(180, 80)
@@ -361,6 +378,7 @@ theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Quiz 1"
 level_data_copy = ExtResource("10_8dvvn")
+level_scene = ExtResource("16_qd4i8")
 
 [node name="LvlButton6" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -373,6 +391,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 6
 "
 level_data_copy = ExtResource("11_c1xo7")
+level_scene = ExtResource("18_mf60k")
 
 [node name="LvlButton7" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -385,6 +404,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 7
 "
 level_data_copy = ExtResource("12_rjv15")
+level_scene = ExtResource("20_mna8s")
 
 [node name="LvlButton8" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -397,6 +417,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 8
 "
 level_data_copy = ExtResource("13_iarii")
+level_scene = ExtResource("22_guyrf")
 
 [node name="LvlButton9" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -409,6 +430,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 9
 "
 level_data_copy = ExtResource("14_7hl0h")
+level_scene = ExtResource("24_cjs7r")
 
 [node name="LvlButton10" parent="." instance=ExtResource("1_7bab2")]
 layout_mode = 0
@@ -421,6 +443,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Level 10
 "
 level_data_copy = ExtResource("15_f4usa")
+level_scene = ExtResource("26_j73ar")
 
 [node name="LvlButtonQuiz2" parent="." instance=ExtResource("1_7bab2")]
 custom_minimum_size = Vector2(0, 80)
@@ -434,6 +457,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g2g7d")
 text = "Quiz 2
 "
 level_data_copy = ExtResource("16_hcrs4")
+level_scene = ExtResource("28_04fk2")
 
 [node name="LevelInfo" type="Panel" parent="."]
 layout_mode = 1

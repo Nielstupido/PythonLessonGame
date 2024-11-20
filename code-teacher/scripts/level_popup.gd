@@ -32,10 +32,10 @@ func _show_level_info():
 
 func _on_close_pressed():
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT_IN)
-	await tween.tween_property(panel, "scale", end_size, 3.0).finished
+	await tween.tween_property(panel, "scale", end_size, 0.5).finished
 	self.hide()
 
 
 func _show_panel():
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(panel, "scale", Vector2(1.0, 1.0), 2.0)
+	tween.tween_property(panel, "scale", Vector2(1.0, 1.0), 0.3)

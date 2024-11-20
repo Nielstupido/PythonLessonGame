@@ -1,6 +1,7 @@
 extends Button
 
 @export var level_data_copy : Resource
+@export var level_scene : PackedScene
 @onready var boxstyle = load("res://scenes/lvl_button_boxstyle.tres")
 var original_size := scale
 var grow_size := Vector2(1.1, 1.1)
@@ -63,4 +64,4 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	owner.on_level_selected(level_data_copy)
+	owner.on_level_selected(level_data_copy, level_scene)

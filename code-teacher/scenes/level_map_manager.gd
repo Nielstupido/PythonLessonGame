@@ -15,6 +15,7 @@ extends Control
 @onready var quiz1_checkmark = $GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox/Checkmark
 @onready var quiz2_checkmark = $GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox/Checkmark
 var current_active_level_data = null
+var current_active_level_data_scene = null
 
 
 func _ready():
@@ -23,8 +24,9 @@ func _ready():
 	var level_number_str
 
 
-func on_level_selected(level_data):
+func on_level_selected(level_data, level_scene):
 	level_information_panel.show()
+	current_active_level_data_scene = level_scene
 	current_active_level_data = level_data
 	level_title.text = level_data.level_title
 	level_objectives_text.text = "Learning Objective : " + level_data.level_objectives
@@ -64,8 +66,8 @@ func update_game_progress():
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_packed(current_active_level_data.level_scene)
+	get_tree().change_scene_to_packed(current_active_level_data_scene)
 
 
 func _on_replay_button_pressed():
-	get_tree().change_scene_to_packed(current_active_level_data.level_scene)
+	get_tree().change_scene_to_packed(current_active_level_data_scene)

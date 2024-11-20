@@ -5,11 +5,12 @@ extends Node
 @export var level_num : float
 @onready var player = $Player
 @onready var pause_menu = $PauseMenu
-var collected_coins := 0
+var current_points = 0
+var current_mistakes = 0
+#var collected_coins := 0
 
 
 func _ready():
-	print("1. level data == " + str(level_data_copy))
 	$LevelPopup.prepare_level_popup()
 	
 	if level_num <= 2.0:
@@ -105,28 +106,28 @@ func _on_exit_body_entered(body):
 	get_tree().change_scene_to_packed(NextLevel)
 
 
-func _on_coin_body_entered(body):
-	if body is Player:
-		collected_coins += 1
-		$Coin.queue_free()
-		$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
-
-
-func _on_coin_2_body_entered(body):
-	if body is Player:
-		collected_coins += 1
-		$Coin2.queue_free()
-		$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
-
-func _on_coin_3_body_entered(body):
-	if body is Player:
-		collected_coins += 1
-		$Coin3.queue_free()
-		$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
-
-
-func _on_coin_4_body_entered(body):
-	if body is Player:
-		collected_coins += 1
-		$"Panels/Panel 1/Coin 4".queue_free()
-		$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
+#func _on_coin_body_entered(body):
+	#if body is Player:
+		#collected_coins += 1
+		#$Coin.queue_free()
+		#$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
+#
+#
+#func _on_coin_2_body_entered(body):
+	#if body is Player:
+		#collected_coins += 1
+		#$Coin2.queue_free()
+		#$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
+#
+#func _on_coin_3_body_entered(body):
+	#if body is Player:
+		#collected_coins += 1
+		#$Coin3.queue_free()
+		#$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
+#
+#
+#func _on_coin_4_body_entered(body):
+	#if body is Player:
+		#collected_coins += 1
+		#$"Panels/Panel 1/Coin 4".queue_free()
+		#$CanvasLayer/coin_count.text = "Coins: " + str(collected_coins)
