@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://b053iy88n4sbu"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://duoby4d4mwms1"]
 
 [ext_resource type="Script" path="res://levels/level_data.gd" id="1_1idg0"]
-[ext_resource type="PackedScene" uid="uid://u8cop2tb1y2g" path="res://scenes/level_9.tscn" id="1_8akwd"]
 
 [resource]
 script = ExtResource("1_1idg0")
 level_number = 9
-level_scene = ExtResource("1_8akwd")
-level_title = "Level 9: Introduction to Variables"
-level_objectives = "Learn to store and modify data using variables"
+quiz_level_number = 0
+level_title = ""
+level_objectives = ""
 level_skills = ""
