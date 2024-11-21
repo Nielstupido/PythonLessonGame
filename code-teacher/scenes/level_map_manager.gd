@@ -14,6 +14,7 @@ extends Control
 @onready var avg_mistakes = $GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
 @onready var quiz1_checkmark = $GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox/Checkmark
 @onready var quiz2_checkmark = $GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox/Checkmark
+@onready var progress_circle = $GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle
 var main_menu_obj = load("res://scenes/main_menu.tscn")
 var current_active_level_data = null
 var current_active_level_data_scene = null
@@ -51,6 +52,7 @@ func on_level_selected(level_data, level_scene):
 
 
 func update_game_progress():
+	progress_circle.material.set_shader_parameter("value", (USERDATA.player_game_data["current_level"] / 12))
 	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
 	avg_mistakes.text = str(USERDATA.get_avg_mistakes())
 	

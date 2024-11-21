@@ -17,16 +17,24 @@ func _ready():
 
 
 func prepare_level_popup():
+	var level_number_str = "level_"
+	level_number_str += str(owner.level_data_copy.level_number)
+	if owner.level_data_copy.level_number == 0:
+		level_number_str = "quiz_level_" + str(owner.level_data_copy.quiz_level_number)
+	
 	panel.scale = end_size
 	_save_player_data("Uncomplete")
 	
-	if owner.level_data.level_number == 0:
-		level_title.text = "Quiz Level " + owner.level_data.quiz_level_number
+	if owner.level_data_copy.level_number == 0:
+		level_title.text = "Quiz Level " + str(owner.level_data_copy.quiz_level_number)
 	else:
-		level_title.text = "Level " + owner.level_data.level_number
+		level_title.text = "Level " + str(owner.level_data_copy.level_number)
 	
-	level_score.text = owner.current_score
-	level_mistakes.text = owner.current_mistakes
+	level_score.text = str(owner.current_score)
+	level_mistakes.text = str(owner.current_mistakes)
+	
+	if owner.current_mistakes > USERDATA.player_game_data[level_number_str][2]:
+		USERDATA.player_game_data[level_number_str][2] = owner.current_mistakes
 	
 	if owner.current_mistakes >= MISTAKES_LIMIT:
 		level_feedback.text = "Unfortunately you reached the mistakes limit. Please try again."
@@ -34,16 +42,16 @@ func prepare_level_popup():
 		next_level_button.hide()
 		level_map_button.hide()
 	else:
-		if owner.level_data.level_number == 0:
-			level_feedback.text = "Congratulations on completing Quiz Level " + owner.level_data.quiz_level_number + "!"
+		if owner.level_data_copy.level_number == 0:
+			level_feedback.text = "Congratulations on completing Quiz Level " + str(owner.level_data_copy.quiz_level_number) + "!"
 		else:
-			level_feedback.text = "Congratulations on completing Level " + owner.level_data.level_number + "!"
+			level_feedback.text = "Congratulations on completing Level " + str(owner.level_data_copy.level_number) + "!"
 		
 		next_level_button.show()
 		retry_button.hide()
 		level_map_button.hide()
 	
-	if owner.level_data.quiz_level_number == 2:
+	if owner.level_data_copy.quiz_level_number == 2:
 		level_map_button.show()
 		next_level_button.hide()
 		retry_button.hide()
@@ -82,27 +90,27 @@ func _on_level_map_pressed():
 func _save_player_data(status):
 	var level_number_str = "level_"
 	var next_level_number_str = "level_"
-	level_number_str += str(owner.level_data.level_number)
+	level_number_str += str(owner.level_data_copy.level_number)
 	
 	if status == "Complete":
-		next_level_number_str += str(owner.level_data.level_number + 1)
+		next_level_number_str += str(owner.level_data_copy.level_number + 1)
 		
-		if owner.level_data == 5:
+		if owner.level_data_copy.level_number == 5:
 			next_level_number_str = "quiz_level_1"
-		elif owner.level_data == 10:
+		elif owner.level_data_copy.level_number == 10:
 			next_level_number_str = "quiz_level_2"
 	
-	if owner.level_data.level_number == 0:
-		level_number_str = "quiz_level_" + str(owner.level_data.quiz_level_number)
+	if owner.level_data_copy.level_number == 0:
+		level_number_str = "quiz_level_" + str(owner.level_data_copy.quiz_level_number)
 		
-		if status == "Complete" and owner.quiz_level_number == 1:
+		if status == "Complete" and owner.level_data_copy.quiz_level_number == 1:
 			next_level_number_str = "level_6"
 	
 	USERDATA.player_game_data[level_number_str][0] = "COMPLETED"
 	USERDATA.player_game_data[level_number_str][1] = owner.current_score
 	USERDATA.player_game_data[level_number_str][2] = owner.current_mistakes
 	
-	if status == "Complete" and owner.level_data.quiz_level_number != 2:
+	if status == "Complete" and owner.level_data_copy.quiz_level_number != 2:
 		USERDATA.player_game_data[next_level_number_str][0] = "UNCOMPLETE"
 	
 	USERDATA.save_player_data()

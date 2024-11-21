@@ -6,15 +6,18 @@ var is_right_answer = false
 @export var wrong_answer_directory: NodePath
 @onready var collider = $Area2D # The child Area2D node. Mine's Area2D
 
+
 func _ready():
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	collider.connect("area_entered", _collide)
+
 
 func _process(delta):
 	if GLOBAL.is_dragging:
 		visible = true
 	else:
 		visible = false
+
 
 func _collide(collider2):
 	if collider2.get_parent() == get_node(right_answer_directory) && GLOBAL.is_dragging == true:

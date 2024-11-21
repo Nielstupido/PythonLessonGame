@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://lxvl7wdhhlcf"]
+
+[ext_resource type="Script" path="res://scripts/droppable_ans.gd" id="1_gt4qb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0boxs"]
+bg_color = Color(0.176471, 0.168627, 0.156863, 0.478431)
+
+[sub_resource type="LabelSettings" id="LabelSettings_puaqe"]
+font_size = 20
+
+[node name="1" type="Label"]
+custom_minimum_size = Vector2(0, 50)
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0boxs")
+text = "?"
+label_settings = SubResource("LabelSettings_puaqe")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_gt4qb")

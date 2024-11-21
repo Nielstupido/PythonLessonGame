@@ -12,7 +12,7 @@ extends Control
 @onready var completed_levels = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle/LevelsFinished
 @onready var avg_score = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/ScoreStatsContainer/Score
 @onready var avg_mistakes = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/MistakesStatsContainer/Mistakes
-
+@onready var progress_circle = $ScrollContainer/VBoxContainer/GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle
 
 func _ready():
 	sfx_on_box.button_pressed = true
@@ -82,6 +82,7 @@ func _on_cancel_reset_button_pressed():
 
 
 func update_game_progress():
+	progress_circle.material.set_shader_parameter("value", (USERDATA.player_game_data["current_level"] / 12))
 	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
 	avg_score.text = str(USERDATA.get_total_points())
 	avg_mistakes.text = str(USERDATA.get_avg_mistakes())

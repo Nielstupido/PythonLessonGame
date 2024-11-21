@@ -219,7 +219,7 @@ gradient = SubResource("Gradient_w7cjt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvhmv"]
 shader = SubResource("Shader_n213j")
-shader_parameter/value = 0.929
+shader_parameter/value = 1.0
 shader_parameter/segments = 0
 shader_parameter/radius = 0.455
 shader_parameter/hollow_radius = 0.305

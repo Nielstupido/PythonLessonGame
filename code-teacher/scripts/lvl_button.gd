@@ -25,6 +25,7 @@ func _ready():
 	
 	match (USERDATA.player_game_data[level_number_str][0]):
 		"COMPLETED":
+			mouse_filter = MOUSE_FILTER_STOP
 			new_boxstyle.bg_color = complete_level_color
 			new_boxstyle.bg_color = complete_level_color
 			add_theme_stylebox_override("normal", new_boxstyle)
@@ -33,6 +34,7 @@ func _ready():
 			add_theme_color_override("font_hover_color", complete_level_font_color)
 			add_theme_color_override("font_focus_color", complete_level_font_color)
 		"UNCOMPLETE":
+			mouse_filter = MOUSE_FILTER_STOP
 			new_boxstyle.bg_color = uncomplete_level_color
 			new_boxstyle.bg_color = uncomplete_level_color
 			add_theme_stylebox_override("normal", new_boxstyle)
@@ -41,6 +43,7 @@ func _ready():
 			add_theme_color_override("font_hover_color", uncomplete_level_font_color)
 			add_theme_color_override("font_focus_color", uncomplete_level_font_color)
 		"LOCKED":
+			mouse_filter = MOUSE_FILTER_IGNORE
 			new_boxstyle.bg_color = locked_level_color
 			new_boxstyle.bg_color = locked_level_color
 			add_theme_stylebox_override("normal", new_boxstyle)

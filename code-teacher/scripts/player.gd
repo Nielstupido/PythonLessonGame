@@ -7,35 +7,52 @@ class_name Player
 @onready var camera = $Camera2D
 @export var speed = 400
 @onready var jump_sound = $Jump
+var controls_paused = false
 var active = true
+var move_player = false
+var jump_player = false
+var target_pos
 const JUMP_VELOCITY = -600.0
 
 
 func _physics_process(delta):
-	if active == true:
+	if active:
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-
+		
 		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor() and !controls_paused:
 			jump_sound.play()
 			velocity.y = JUMP_VELOCITY
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
+		if direction and !controls_paused:
 			velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
-
-		if direction != 0:
+		
+		if direction and !controls_paused:
 			boy_sprite.flip_h = (direction == -1) # when direction is -1 (move_left) turn horizontaly
 			girl_sprite.flip_h = (direction == -1)
 			female_sprite.flip_h = (direction == -1)
 			male_sprite.flip_h = (direction == -1)
-
+		
 		move_and_slide()
+	
+	if move_player:
+		position.x = move_toward(position.x, target_pos.x, speed * delta)
+		velocity.x = 1
+		
+		if position.x == target_pos.x:
+			move_player = false
+			jump_player = true
+		
+	if jump_player:
+		velocity.y = JUMP_VELOCITY
+		move_and_slide()
+	
 	update_animations()
 
 
@@ -62,3 +79,7 @@ func update_animations():
 			girl_sprite.play("fall")
 			female_sprite.play("fall")
 			male_sprite.play("fall")
+
+
+func set_target_pos(pos):
+	target_pos = pos

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr8tr8hrsyydg"]
+
+[ext_resource type="Script" path="res://scripts/draggable_answer.gd" id="1_kpxfu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g002s"]
+bg_color = Color(0.499735, 0.444205, 0.171667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_puaqe"]
+font_size = 20
+
+[node name="Start" type="Label"]
+z_index = 5
+custom_minimum_size = Vector2(0, 50)
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_g002s")
+text = "Start
+"
+label_settings = SubResource("LabelSettings_puaqe")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_kpxfu")

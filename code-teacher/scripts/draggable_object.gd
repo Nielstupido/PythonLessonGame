@@ -1,15 +1,10 @@
 extends Node2D
 class_name Draggable
-@onready var label_text = $Label
-@export var text_on_draggable: String
 var draggable = false
 var is_inside_droppable = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
-
-func _ready():
-	label_text.text = text_on_draggable
 
 
 func _process(delta):
@@ -40,17 +35,6 @@ func _on_area_2d_mouse_exited():
 	if GLOBAL.is_dragging == false:
 		draggable = false
 		scale = Vector2(1, 1)
-
-func _on_area_2d_body_exited(body: StaticBody2D):
-	if body.is_in_group("droppable"):
-		is_inside_droppable = false
-		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("droppable"):
-		body_ref = body
-		is_inside_droppable = true
-		body.modulate = Color(Color.REBECCA_PURPLE, 1)
 
 
 func _on_area_2d_area_entered(area):

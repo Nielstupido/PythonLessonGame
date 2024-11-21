@@ -107,7 +107,8 @@ func _process(delta):
 
 
 func _on_exit_body_entered(body):
-	await get_tree().create_timer(0.5).timeout
+	player.jump_player = false
+	await get_tree().create_timer(0.2).timeout
 	end_level_popup.show()
 	end_level_popup.prepare_level_popup()
 

@@ -366,6 +366,8 @@ animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -115)
+drag_horizontal_offset = 1.0
+drag_left_margin = 0.51
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ub5t8")

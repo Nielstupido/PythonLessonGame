@@ -1,72 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://co3v5w0ctl8yf"]
+[gd_scene load_steps=6 format=4 uid="uid://co3v5w0ctl8yf"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_mshce"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="2_c8thd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x74ru"]
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_slr08"]
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvgdl"]
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aygpq"]
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3658r"]
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sq1ff"]
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_st4nq"]
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abcik"]
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8f6yo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x74ru")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_slr08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvgdl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aygpq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3658r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sq1ff")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_st4nq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abcik")
-}],
-"loop": true,
-"name": &"default",
-"speed": 20.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wytis"]
-radius = 13.0384
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_po3qk"]
-size = Vector2(42.375, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_axhjh"]
-size = Vector2(6, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvlpg"]
+size = Vector2(126.5, 127.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl6xk"]
 texture = ExtResource("2_c8thd")
@@ -682,35 +620,11 @@ collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_mshce")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, -40)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_8f6yo")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, -95)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_wytis")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(20, -8)
-scale = Vector2(2, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-8.125, -4)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_po3qk")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(40, -14)
-scale = Vector2(2, 2)
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(18.5, -18)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_axhjh")
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_dvlpg")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD7//7/AAAwAAgAAAD7////AAAwAAkAAAD8//7/AAAxAAgAAAD8////AAAxAAkAAAD9//7/AAAyAAgAAAD9////AAAyAAkAAAD+//7/AAAzAAgAAAD+////AAAzAAkAAAD///7/AAA0AAgAAAD/////AAA0AAkAAAAAAP7/AAA1AAgAAAAAAP//AAA1AAkAAAABAP7/AAA1AAgAAAABAP//AAA1AAkAAAACAP7/AAA2AAgAAAACAP//AAA2AAkAAAADAP7/AAA3AAgAAAADAP//AAA3AAkAAAA=")
+tile_map_data = PackedByteArray("AAD8//z/AAA4AAAAAAD8//3/AAA4AAEAAAD8//7/AAA4AAIAAAD8////AAA4AAMAAAD8/wAAAAA4AAQAAAD8/wEAAAA4AAUAAAD8/wIAAAA4AAYAAAD8/wMAAAA4AAcAAAD9//z/AAA5AAAAAAD9//3/AAA5AAEAAAD9//7/AAA5AAIAAAD9////AAA5AAMAAAD9/wAAAAA5AAQAAAD9/wEAAAA5AAUAAAD9/wIAAAA5AAYAAAD9/wMAAAA5AAcAAAD+//z/AAA6AAAAAAD+//3/AAA6AAEAAAD+//7/AAA6AAIAAAD+////AAA6AAMAAAD+/wAAAAA6AAQAAAD+/wEAAAA6AAUAAAD+/wIAAAA6AAYAAAD+/wMAAAA6AAcAAAD///z/AAA7AAAAAAD///3/AAA7AAEAAAD///7/AAA7AAIAAAD/////AAA7AAMAAAD//wAAAAA7AAQAAAD//wEAAAA7AAUAAAD//wIAAAA7AAYAAAD//wMAAAA7AAcAAAAAAPz/AAA8AAAAAAAAAP3/AAA8AAEAAAAAAP7/AAA8AAIAAAAAAP//AAA8AAMAAAAAAAAAAAA8AAQAAAAAAAEAAAA8AAUAAAAAAAIAAAA8AAYAAAAAAAMAAAA8AAcAAAABAPz/AAA9AAAAAAABAP3/AAA9AAEAAAABAP7/AAA9AAIAAAABAP//AAA9AAMAAAABAAAAAAA9AAQAAAABAAEAAAA9AAUAAAABAAIAAAA9AAYAAAABAAMAAAA9AAcAAAACAPz/AAA+AAAAAAACAP3/AAA+AAEAAAACAP7/AAA+AAIAAAACAP//AAA+AAMAAAACAAAAAAA+AAQAAAACAAEAAAA+AAUAAAACAAIAAAA+AAYAAAACAAMAAAA+AAcAAAADAPz/AAA/AAAAAAADAP3/AAA/AAEAAAADAP7/AAA/AAIAAAADAP//AAA/AAMAAAADAAAAAAA/AAQAAAADAAEAAAA/AAUAAAADAAIAAAA/AAYAAAADAAMAAAA/AAcAAAA=")
 tile_set = SubResource("TileSet_e1mxo")
+collision_enabled = false

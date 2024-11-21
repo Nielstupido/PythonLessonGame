@@ -10,7 +10,7 @@ var active_areas = []
 var can_interact = true
 
 func _ready():
-	z_index = 999999
+	z_index = 100
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
