@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="12_j7rxn"]
 [ext_resource type="PackedScene" uid="uid://lxvl7wdhhlcf" path="res://scenes/droppable_ans.tscn" id="14_1n20q"]
 [ext_resource type="PackedScene" uid="uid://b05cvy02jjxxt" path="res://scenes/end_level_popup.tscn" id="14_s5afh"]
+[ext_resource type="PackedScene" uid="uid://c00s2muy41r5a" path="res://scenes/stop_point.tscn" id="14_uxm22"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="14_wbaor"]
 [ext_resource type="PackedScene" uid="uid://dr8tr8hrsyydg" path="res://scenes/draggable_ans.tscn" id="15_0p43k"]
 [ext_resource type="PackedScene" uid="uid://218s5mfe1qlt" path="res://scenes/level_popup.tscn" id="15_bpmr0"]
@@ -2523,6 +2524,21 @@ font_size = 30
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_as3be"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Bridge:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3633, 752)]
+}
+
 [sub_resource type="Animation" id="Animation_pwykm"]
 resource_name = "activate_bridge"
 length = 2.0
@@ -2539,29 +2555,11 @@ tracks/0/keys = {
 "values": [Vector2(3633, 752), Vector2(3071.51, 752)]
 }
 
-[sub_resource type="Animation" id="Animation_as3be"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Bridge:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3633, 752)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_somgv"]
 _data = {
 "RESET": SubResource("Animation_as3be"),
 "activate_bridge": SubResource("Animation_pwykm")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j0fr"]
-size = Vector2(59.71, 325)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8urs"]
 bg_color = Color(0, 0, 0, 0.415686)
@@ -2713,34 +2711,10 @@ libraries = {
 "": SubResource("AnimationLibrary_somgv")
 }
 
-[node name="StopPoint" type="Area2D" parent="."]
-position = Vector2(269.71, 2.52)
-collision_mask = 2
-monitorable = false
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StopPoint"]
-position = Vector2(2419.15, 543.5)
-shape = SubResource("RectangleShape2D_5j0fr")
-
-[node name="ColorRect" type="ColorRect" parent="StopPoint"]
-custom_minimum_size = Vector2(200, 325)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 2249.0
-offset_top = 381.0
-offset_right = 2449.0
-offset_bottom = 706.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.572549, 0.588235, 0.976471, 0.176471)
+[node name="StopPoint" parent="." instance=ExtResource("14_uxm22")]
 
 [node name="LvlChallenge" type="CanvasLayer" parent="."]
 layer = 5
-visible = false
 
 [node name="Panel" type="Panel" parent="LvlChallenge"]
 anchors_preset = 5
@@ -2895,5 +2869,4 @@ gizmo_extents = 29.0
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="Exit" to="Lvl1Manager" method="_on_exit_body_entered"]
 [connection signal="animation_finished" from="Lvl1Manager/AnimationPlayer" to="Lvl1Manager" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="StopPoint" to="Lvl1Manager" method="_on_stop_point_body_entered"]
 [connection signal="pressed" from="LvlChallenge/Panel/Submit" to="Lvl1Manager" method="_on_submit_pressed"]

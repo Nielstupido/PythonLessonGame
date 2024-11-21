@@ -11,6 +11,7 @@ var controls_paused = false
 var active = true
 var move_player = false
 var jump_player = false
+var do_jump = false
 var target_pos
 const JUMP_VELOCITY = -600.0
 
@@ -47,7 +48,8 @@ func _physics_process(delta):
 		
 		if position.x == target_pos.x:
 			move_player = false
-			jump_player = true
+			if do_jump:
+				jump_player = true
 		
 	if jump_player:
 		velocity.y = JUMP_VELOCITY
@@ -81,5 +83,6 @@ func update_animations():
 			male_sprite.play("fall")
 
 
-func set_target_pos(pos):
+func set_target_pos(pos, jump):
+	do_jump = jump
 	target_pos = pos

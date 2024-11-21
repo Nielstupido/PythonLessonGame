@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://hpc716pfkkat"]
+[gd_scene load_steps=3 format=3 uid="uid://hpc716pfkkat"]
 
-[ext_resource type="AudioStream" uid="uid://is4ueunc3yn0" path="res://assets/music/8bit-music.mp3" id="1_uv8dl"]
+[ext_resource type="AudioStream" uid="uid://foovpjbjkbya" path="res://assets/music/puzzle-game-loop-bright-casual-video-game-music-249201.mp3" id="1_d433d"]
+[ext_resource type="Script" path="res://scripts/background_music.gd" id="2_ccfwm"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
-stream = ExtResource("1_uv8dl")
+stream = ExtResource("1_d433d")
+volume_db = -14.943
 autoplay = true
 parameters/looping = true
+script = ExtResource("2_ccfwm")

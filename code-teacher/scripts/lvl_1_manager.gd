@@ -23,10 +23,11 @@ func _on_submit_pressed():
 	if first_holder.get_child(0).name == "3" and second_holder.get_child(0).name == "1" and third_holder.get_child(0).name == "2":
 		wrong_msg.hide()
 		_animate_player()
-		owner.current_mistakes += 1
+		owner.current_score += 50 - (owner.current_used_hints * 10)
+		USERDATA.player_game_data["level_1"][1] = 50 - (owner.current_used_hints * 10)
 	else:
 		wrong_msg.show()
-		USERDATA.player_game_data["level_1"][1] = 50
+		owner.current_mistakes += 1
 
 
 func _animate_player():

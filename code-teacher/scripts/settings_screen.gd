@@ -38,9 +38,11 @@ func _on_sound_control_button_pressed(button_name : String):
 			sfx_on_box.button_pressed = false
 			sfx_off_box.button_pressed = true
 		"on_music":
+			BackgroundMusic.toggle_music(true)
 			music_on_box.button_pressed = true
 			music_off_box.button_pressed = false
 		"off_music":
+			BackgroundMusic.toggle_music(false)
 			music_on_box.button_pressed = false
 			music_off_box.button_pressed = true
 	

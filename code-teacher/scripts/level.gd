@@ -1,5 +1,6 @@
 extends Node
 
+const HINTS_LIMIT = 2
 @onready var level_map = load("res://scenes/level_select_screen.tscn")
 @export var NextLevel: PackedScene
 @export var level_data_copy : Resource
@@ -10,6 +11,7 @@ extends Node
 @onready var end_level_popup = $EndLevelPopup
 var current_score = 0
 var current_mistakes = 0
+var current_used_hints = 0
 #var collected_coins := 0
 
 
@@ -107,7 +109,9 @@ func _process(delta):
 
 
 func _on_exit_body_entered(body):
+	player.controls_paused = true
 	player.jump_player = false
+	player.move_player = false
 	await get_tree().create_timer(0.2).timeout
 	end_level_popup.show()
 	end_level_popup.prepare_level_popup()

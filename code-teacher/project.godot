@@ -22,6 +22,7 @@ INTERACTIONMANAGER="*res://assets/interaction/InteractionManager.tscn"
 SOUNDMANAGER="*res://scripts/sound_manager.gd"
 GAMESETTINGS="*res://scripts/game_settings.gd"
 USERDATA="*res://scripts/user_data.gd"
+BackgroundMusic="*res://scenes/background_music.tscn"
 
 [display]
 
