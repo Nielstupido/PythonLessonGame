@@ -1802,6 +1802,7 @@ text = "Submit Answer"
 
 [node name="1" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 136.0
 offset_top = 94.0
 offset_right = 296.0
@@ -1810,6 +1811,7 @@ metadata/_edit_group_ = true
 
 [node name="2" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 136.0
 offset_top = 175.0
 offset_right = 296.0
@@ -1818,6 +1820,7 @@ metadata/_edit_group_ = true
 
 [node name="3" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 77.0
 offset_top = 238.0
 offset_right = 237.0
@@ -1826,6 +1829,7 @@ metadata/_edit_group_ = true
 
 [node name="Holder" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 624.0
 offset_top = 35.0
 offset_right = 784.0
@@ -1834,6 +1838,7 @@ text = "
 "
 
 [node name="3" parent="Panels/Panel3/Holder" instance=ExtResource("12_fb7xv")]
+layout_mode = 0
 offset_right = 160.0
 offset_bottom = 50.0
 text = "walk_forward()
@@ -1842,6 +1847,7 @@ metadata/_edit_group_ = true
 
 [node name="Holder2" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 625.0
 offset_top = 99.0
 offset_right = 785.0
@@ -1851,6 +1857,7 @@ text = "
 metadata/_edit_group_ = true
 
 [node name="1" parent="Panels/Panel3/Holder2" instance=ExtResource("12_fb7xv")]
+layout_mode = 0
 offset_right = 160.0
 offset_bottom = 50.0
 text = "open_gate()
@@ -1858,6 +1865,7 @@ text = "open_gate()
 
 [node name="Holder3" parent="Panels/Panel3" instance=ExtResource("13_abmlw")]
 custom_minimum_size = Vector2(160, 50)
+layout_mode = 0
 offset_left = 624.0
 offset_top = 165.0
 offset_right = 784.0
@@ -1867,6 +1875,7 @@ text = "
 metadata/_edit_group_ = true
 
 [node name="2" parent="Panels/Panel3/Holder3" instance=ExtResource("12_fb7xv")]
+layout_mode = 0
 offset_right = 160.0
 offset_bottom = 50.0
 text = "activate_bridge()"
