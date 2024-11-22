@@ -2712,6 +2712,7 @@ libraries = {
 }
 
 [node name="StopPoint" parent="." instance=ExtResource("14_uxm22")]
+position = Vector2(2677, 539)
 
 [node name="LvlChallenge" type="CanvasLayer" parent="."]
 layer = 5

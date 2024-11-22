@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dfevw5dudq78m"]
+[gd_scene load_steps=27 format=4 uid="uid://dfevw5dudq78m"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_irsyo"]
 [ext_resource type="PackedScene" uid="uid://cspmeu0u8nr7l" path="res://scenes/level_5.tscn" id="2_norx6"]
@@ -7,11 +7,13 @@
 [ext_resource type="FontFile" uid="uid://dvwmengwruy7d" path="res://assets/recharge bd.otf" id="4_5vosx"]
 [ext_resource type="Texture2D" uid="uid://bvyvh55d5jobn" path="res://assets/tilemap/platformPack_tilesheet@2.png" id="4_kn7md"]
 [ext_resource type="Texture2D" uid="uid://tm8ehtbougvh" path="res://assets/ui_pack/PNG/Default/pattern_diagonal_grey_large.png" id="5_a22sv"]
-[ext_resource type="PackedScene" uid="uid://v0boiv1ojoea" path="res://scenes/draggable_object.tscn" id="11_hj4nq"]
-[ext_resource type="PackedScene" uid="uid://cp5amrfghw7x2" path="res://scenes/door.tscn" id="11_rlh7j"]
-[ext_resource type="PackedScene" uid="uid://cd2fecafumyhj" path="res://scenes/droppable_area.tscn" id="12_icwqc"]
+[ext_resource type="PackedScene" uid="uid://bakm2phyyaq2r" path="res://scenes/deathzone.tscn" id="8_amwf0"]
+[ext_resource type="PackedScene" uid="uid://b05cvy02jjxxt" path="res://scenes/end_level_popup.tscn" id="11_80vr7"]
+[ext_resource type="Script" path="res://scripts/lvl_4_manager.gd" id="11_amaxs"]
+[ext_resource type="PackedScene" uid="uid://218s5mfe1qlt" path="res://scenes/level_popup.tscn" id="12_i4pav"]
 [ext_resource type="PackedScene" uid="uid://co3v5w0ctl8yf" path="res://scenes/exit.tscn" id="13_8jpu2"]
 [ext_resource type="Texture2D" uid="uid://cqi773bkesxao" path="res://assets/kenney_platformer-art-mushrooms/Backgrounds/bg_desert.png" id="14_4h61y"]
+[ext_resource type="PackedScene" uid="uid://c00s2muy41r5a" path="res://scenes/stop_point.tscn" id="14_j21ed"]
 [ext_resource type="PackedScene" uid="uid://dmw0x8sc557ik" path="res://scenes/pause_menu.tscn" id="15_twlnw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydkax"]
@@ -4675,7 +4677,196 @@ font_size = 24
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_v3k0t"]
+font = ExtResource("4_5vosx")
+font_size = 22
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y20ep"]
+font_size = 22
+font_color = Color(0.2091, 0.208181, 0, 1)
+outline_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_667hw"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.597863, 0.619047, 0.445148, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+
+[sub_resource type="Animation" id="Animation_1hdh3"]
+resource_name = "open_gates123"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5826, 542), Vector2(5826, 542), Vector2(5826, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gate2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5881, 543), Vector2(5881, 543), Vector2(5881, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gate3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5938, 542), Vector2(5938, 542), Vector2(5938, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_dpglq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5826, 542)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gate2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5881, 543)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gate3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5938, 542)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Gate4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6138, 542)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Gate5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6191, 543)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Gate6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6243.92, 544)]
+}
+
+[sub_resource type="Animation" id="Animation_hkhmh"]
+resource_name = "open_gates456"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Gate4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6138, 542), Vector2(6138, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gate5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6191, 543), Vector2(6191, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gate6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6243.92, 544), Vector2(6243.92, 320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r36r2"]
+_data = {
+"RESET": SubResource("Animation_dpglq"),
+"open_gates123": SubResource("Animation_1hdh3"),
+"open_gates456": SubResource("Animation_hkhmh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evtpk"]
+size = Vector2(45, 258)
+
 [node name="Level4" type="Node2D"]
+position = Vector2(0, -1)
 script = ExtResource("1_irsyo")
 NextLevel = ExtResource("2_norx6")
 level_data_copy = ExtResource("3_hd7yj")
@@ -4799,94 +4990,111 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(5367, 466)
 
 [node name="TextureRect" type="TextureRect" parent="Panels/Panel4"]
-offset_right = 635.0
-offset_bottom = 169.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.5
+offset_top = -84.5
+offset_right = 317.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_a22sv")
 stretch_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Panels/Panel4"]
-offset_right = 561.0
-offset_bottom = 195.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -59.0
+offset_right = 301.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 text = "Now let's use our knowledge to tackle this
-challenge. Let's say we want to print out
-all of combinations of two colors: red and 
-blue. We want to match every shirt color 
-with every pant color."
-label_settings = SubResource("LabelSettings_rwatp")
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel5" type="Node2D" parent="Panels"]
-position = Vector2(6119, 541)
-
-[node name="TextureRect" type="TextureRect" parent="Panels/Panel5"]
-offset_right = 472.0
-offset_bottom = 169.0
-texture = ExtResource("5_a22sv")
-stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Panels/Panel5"]
-offset_left = 5.0
-offset_top = 28.0
-offset_right = 566.0
-offset_bottom = 223.0
-text = "short_colors =  [\"red\", \"blue\"]
-
-pants_colors = [\"black\", \"white\"]"
-label_settings = SubResource("LabelSettings_rwatp")
-metadata/_edit_use_anchors_ = true
+challenge. Help your character to reach
+the yellow box using the code on the right."
+label_settings = SubResource("LabelSettings_v3k0t")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Panel6" type="Node2D" parent="Panels"]
-position = Vector2(6682, 312)
+position = Vector2(5785, 294)
 
 [node name="TextureRect" type="TextureRect" parent="Panels/Panel6"]
 offset_right = 561.0
-offset_bottom = 242.0
+offset_bottom = 249.99
 texture = ExtResource("5_a22sv")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Wrong" type="Label" parent="Panels/Panel6"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 221.0
+offset_top = 2.0
+offset_right = 339.0
+offset_bottom = 25.0
+grow_horizontal = 2
+text = "Wrong Answer!"
+label_settings = SubResource("LabelSettings_y20ep")
+
 [node name="Label" type="Label" parent="Panels/Panel6"]
-offset_left = 9.0
-offset_top = 27.0
-offset_right = 570.0
-offset_bottom = 222.0
-text = "for shirt in                          :
-
-
-      for pants in                         :
-
-print(f\"Shirt: {shirt}, Pants: {pants}\")"
+offset_left = 37.0
+offset_top = 55.0
+offset_right = 598.0
+offset_bottom = 250.0
+text = "repeat(       ):
+     repeat(       ):
+           open_gate()
+     move_forward()
+           "
 label_settings = SubResource("LabelSettings_rwatp")
 metadata/_edit_use_anchors_ = true
 
-[node name="shirt_colors" parent="Panels/Panel6" instance=ExtResource("11_hj4nq")]
-z_index = 100
-position = Vector2(144, 302)
-text_on_draggable = "shirt_colors"
+[node name="1" type="LineEdit" parent="Panels/Panel6"]
+offset_left = 146.0
+offset_top = 55.0
+offset_right = 213.063
+offset_bottom = 86.0
 
-[node name="pants_colors" parent="Panels/Panel6" instance=ExtResource("11_hj4nq")]
-z_index = 100
-position = Vector2(416, 299)
-text_on_draggable = "pants_colors"
+[node name="2" type="LineEdit" parent="Panels/Panel6"]
+offset_left = 195.0
+offset_top = 88.0
+offset_right = 262.063
+offset_bottom = 119.0
 
-[node name="Door" parent="Panels/Panel6" instance=ExtResource("11_rlh7j")]
-position = Vector2(703, 103)
-scale = Vector2(1, 2.96)
+[node name="Button" type="Button" parent="Panels/Panel6"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = 222.0
+offset_right = 316.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_667hw")
+text = "Submit"
 
-[node name="Droppable Area" parent="Panels/Panel6" instance=ExtResource("12_icwqc")]
-position = Vector2(311.327, 44.84)
-right_answer_directory = NodePath("../shirt_colors")
-wrong_answer_directory = NodePath("../pants_colors")
-
-[node name="Droppable Area2" parent="Panels/Panel6" instance=ExtResource("12_icwqc")]
-position = Vector2(376.363, 141.057)
-right_answer_directory = NodePath("../pants_colors")
-wrong_answer_directory = NodePath("../shirt_colors")
+[node name="Deathzone" parent="." instance=ExtResource("8_amwf0")]
+position = Vector2(3360, 1396)
+scale = Vector2(2, 1)
 
 [node name="Exit" parent="." instance=ExtResource("13_8jpu2")]
-position = Vector2(8080, 798)
+position = Vector2(6449, 735)
+scale = Vector2(1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -128
@@ -4903,4 +5111,149 @@ metadata/_edit_lock_ = true
 
 [node name="HUD" parent="." instance=ExtResource("15_twlnw")]
 
+[node name="EndLevelPopup" parent="." instance=ExtResource("11_80vr7")]
+
+[node name="LevelPopup" parent="." instance=ExtResource("12_i4pav")]
+
+[node name="Lvl4Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_amaxs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lvl4Manager"]
+libraries = {
+"": SubResource("AnimationLibrary_r36r2")
+}
+
+[node name="Gate" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(5826, 542)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Gate2" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(5881, 543)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate2"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Gate3" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(5938, 542)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate3"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Gate4" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(6138, 542)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate4"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate4"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Gate5" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(6191, 543)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate5"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate5"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Gate6" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(6243.92, 544)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate6"]
+position = Vector2(0, 128.875)
+shape = SubResource("RectangleShape2D_evtpk")
+
+[node name="ColorRect" type="ColorRect" parent="Gate6"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="StopPoint" parent="." instance=ExtResource("14_j21ed")]
+position = Vector2(5716, 720)
+scale = Vector2(0.5, 0.5)
+
+[node name="TargetPos" type="Marker2D" parent="."]
+position = Vector2(6031, 775)
+gizmo_extents = 29.0
+
+[node name="TargetPos2" type="Marker2D" parent="."]
+position = Vector2(6541, 775)
+gizmo_extents = 29.0
+
+[connection signal="pressed" from="Panels/Panel6/Button" to="Lvl4Manager" method="_on_button_pressed"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+[connection signal="animation_finished" from="Lvl4Manager/AnimationPlayer" to="Lvl4Manager" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="StopPoint" to="Lvl4Manager" method="_on_stop_point_body_entered"]

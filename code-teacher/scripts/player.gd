@@ -1,5 +1,8 @@
 extends CharacterBody2D
 class_name Player
+
+
+signal player_reached_target_pos()
 @onready var girl_sprite = $girl
 @onready var boy_sprite = $boy
 @onready var female_sprite = $female
@@ -47,6 +50,7 @@ func _physics_process(delta):
 		velocity.x = 1
 		
 		if position.x == target_pos.x:
+			emit_signal("player_reached_target_pos")
 			move_player = false
 			if do_jump:
 				jump_player = true
