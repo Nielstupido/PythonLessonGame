@@ -2716,7 +2716,6 @@ position = Vector2(2677, 539)
 
 [node name="LvlChallenge" type="CanvasLayer" parent="."]
 layer = 5
-visible = false
 
 [node name="Panel" type="Panel" parent="LvlChallenge"]
 anchors_preset = 5

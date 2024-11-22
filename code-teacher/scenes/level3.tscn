@@ -4777,7 +4777,9 @@ tile_map_data = PackedByteArray("AADR/wAAAAAZAAAAAADR/wEAAAAZAAEAAADR/wIAAAAZAAI
 tile_set = SubResource("TileSet_l4b8t")
 metadata/_edit_lock_ = true
 
-[node name="Panels" type="Node" parent="."]
+[node name="Panels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="StartPanel" type="TextureRect" parent="Panels"]
 offset_left = 196.0
