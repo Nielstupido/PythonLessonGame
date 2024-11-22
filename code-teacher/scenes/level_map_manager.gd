@@ -15,7 +15,7 @@ extends Control
 @onready var quiz1_checkmark = $GameProgress/HBoxContainer/Quiz1StatsContainer/Checkbox/Checkmark
 @onready var quiz2_checkmark = $GameProgress/HBoxContainer/Quiz2StatsContainer/Checkbox/Checkmark
 @onready var progress_circle = $GameProgress/HBoxContainer/LevelStatsContainer/ProgressCircle
-var main_menu_obj = load("res://scenes/main_menu.tscn")
+var main_menu_scene_path = "res://scenes/main_menu.tscn"
 var current_active_level_data = null
 var current_active_level_data_scene = null
 
@@ -52,8 +52,8 @@ func on_level_selected(level_data, level_scene):
 
 
 func update_game_progress():
-	progress_circle.material.set_shader_parameter("value", (USERDATA.player_game_data["current_level"] / 12))
-	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
+	progress_circle.material.set_shader_parameter("value", ((USERDATA.player_game_data["current_level"] - 1) / 12))
+	completed_levels.text = str(USERDATA.player_game_data["current_level"] - 1) + "/12"
 	avg_mistakes.text = str(USERDATA.get_avg_mistakes())
 	
 	if USERDATA.player_game_data["quiz_level_1"][0] == "COMPLETED":
@@ -68,14 +68,12 @@ func update_game_progress():
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_packed(current_active_level_data_scene)
+	get_tree().change_scene_to_file(current_active_level_data_scene)
 
 
 func _on_replay_button_pressed():
-	get_tree().change_scene_to_packed(current_active_level_data_scene)
+	get_tree().change_scene_to_file(current_active_level_data_scene)
 
 
 func _on_return_button_pressed():
-	var instance = main_menu_obj.instantiate()
-	get_tree().root.add_child(instance)
-	get_tree().root.remove_child(get_tree().current_scene)
+	get_tree().change_scene_to_file(main_menu_scene_path)

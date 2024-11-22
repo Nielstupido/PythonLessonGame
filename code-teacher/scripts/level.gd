@@ -1,14 +1,14 @@
 extends Node
 
 const HINTS_LIMIT = 2
-@onready var level_map = load("res://scenes/level_select_screen.tscn")
 @export var NextLevel: PackedScene
 @export var level_data_copy : Resource
 @export var level_name: String
 @export var level_num : float
 @onready var player = $Player
-@onready var pause_menu = $PauseMenu
+@onready var pause_menu = $HUD
 @onready var end_level_popup = $EndLevelPopup
+var level_map = "res://scenes/level_select_screen.tscn"
 var current_score = 0
 var current_mistakes = 0
 var current_used_hints = 0

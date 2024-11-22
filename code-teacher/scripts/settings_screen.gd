@@ -84,7 +84,7 @@ func _on_cancel_reset_button_pressed():
 
 
 func update_game_progress():
-	progress_circle.material.set_shader_parameter("value", (USERDATA.player_game_data["current_level"] / 12))
-	completed_levels.text = str(USERDATA.player_game_data["current_level"]) + "/12"
+	progress_circle.material.set_shader_parameter("value", ((USERDATA.player_game_data["current_level"] - 1) / 12))
+	completed_levels.text = str(USERDATA.player_game_data["current_level"] - 1) + "/12"
 	avg_score.text = str(USERDATA.get_total_points())
 	avg_mistakes.text = str(USERDATA.get_avg_mistakes())

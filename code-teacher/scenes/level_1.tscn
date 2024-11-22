@@ -2684,7 +2684,7 @@ autowrap_mode = 2
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="PauseMenu" parent="." instance=ExtResource("11_2dnkt")]
+[node name="HUD" parent="." instance=ExtResource("11_2dnkt")]
 
 [node name="LevelPopup" parent="." instance=ExtResource("15_bpmr0")]
 
@@ -2715,6 +2715,7 @@ libraries = {
 
 [node name="LvlChallenge" type="CanvasLayer" parent="."]
 layer = 5
+visible = false
 
 [node name="Panel" type="Panel" parent="LvlChallenge"]
 anchors_preset = 5
@@ -2869,4 +2870,5 @@ gizmo_extents = 29.0
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="Exit" to="Lvl1Manager" method="_on_exit_body_entered"]
 [connection signal="animation_finished" from="Lvl1Manager/AnimationPlayer" to="Lvl1Manager" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="StopPoint" to="Lvl1Manager" method="_on_stop_point_body_entered"]
 [connection signal="pressed" from="LvlChallenge/Panel/Submit" to="Lvl1Manager" method="_on_submit_pressed"]
