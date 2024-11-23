@@ -1502,6 +1502,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="Panels/Panel 1"]
+layout_mode = 0
 offset_left = 157.0
 offset_top = 407.0
 offset_right = 1068.0
@@ -1511,6 +1512,7 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Panels/Panel 1"]
+layout_mode = 0
 offset_left = 181.0
 offset_top = 428.0
 offset_right = 1048.0
@@ -1553,6 +1555,7 @@ move_through_trees(               ):"
 label_settings = SubResource("LabelSettings_kxarf")
 
 [node name="Submit1" type="Button" parent="Panels/Panel2"]
+layout_mode = 0
 offset_left = 2989.0
 offset_top = 460.0
 offset_right = 3127.0
@@ -1578,6 +1581,7 @@ vertical_alignment = 1
 
 [node name="1" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2706.0
 offset_top = 252.0
 offset_right = 2836.0
@@ -1586,6 +1590,7 @@ metadata/_edit_group_ = true
 
 [node name="2" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2483.0
 offset_top = 298.0
 offset_right = 2613.0
@@ -1594,6 +1599,7 @@ metadata/_edit_group_ = true
 
 [node name="3" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2655.0
 offset_top = 432.0
 offset_right = 2785.0
@@ -1602,6 +1608,7 @@ metadata/_edit_group_ = true
 
 [node name="Holder" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2993.0
 offset_top = 244.0
 offset_right = 3123.0
@@ -1619,6 +1626,7 @@ text = "3"
 
 [node name="Holder2" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2993.0
 offset_top = 307.0
 offset_right = 3123.0
@@ -1637,6 +1645,7 @@ text = "tree_count
 
 [node name="Holder3" parent="Panels/Panel2" instance=ExtResource("12_utpgq")]
 custom_minimum_size = Vector2(130, 50)
+layout_mode = 0
 offset_left = 2992.0
 offset_top = 373.0
 offset_right = 3122.0

@@ -2276,7 +2276,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="s" parent="Panels/Panel 2" instance=ExtResource("11_sn22m")]
 position = Vector2(78, 461)
-text_on_draggable = "\"silver\""
 
 [node name="Droppable Area" parent="Panels/Panel 2" instance=ExtResource("12_qj7uw")]
 position = Vector2(512.134, 284.068)
@@ -2285,7 +2284,6 @@ wrong_answer_directory = NodePath("../s")
 
 [node name="r" parent="Panels/Panel 2" instance=ExtResource("11_sn22m")]
 position = Vector2(352, 458)
-text_on_draggable = "\"ruby\""
 
 [node name="player_stop_area" parent="Panels/Panel 2" node_paths=PackedStringArray("Target", "challenge_droppable") instance=ExtResource("13_1jf3y")]
 position = Vector2(675, 476)

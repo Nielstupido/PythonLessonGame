@@ -4782,6 +4782,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="StartPanel" type="TextureRect" parent="Panels"]
+layout_mode = 0
 offset_left = 196.0
 offset_top = 86.0
 offset_right = 1257.0
@@ -4806,6 +4807,7 @@ when a condition is provided.
 label_settings = SubResource("LabelSettings_1en7v")
 
 [node name="IfPanel" type="TextureRect" parent="Panels"]
+layout_mode = 0
 offset_left = 1935.0
 offset_top = 48.0
 offset_right = 2996.0
@@ -4917,6 +4919,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fexpt")
 text = "Submit Answer"
 
 [node name="ElsePanel" type="TextureRect" parent="Panels"]
+layout_mode = 0
 offset_left = 4591.0
 offset_top = 132.0
 offset_right = 5682.0
